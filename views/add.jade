@@ -1,0 +1,96 @@
+extends layout
+
+block content
+   .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Contribute to the Demand and Supply Cloud
+          p
+            | Data publishers are encouraged to advertise their data API here for consumption. For submitting your API using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | .
+      .row
+        .col-md-8
+          form#formAddPub
+            .form-group
+              label(for='txtPubName') Publisher's Name
+              input#txtPubName.form-control(type='text', placeholder='e.g. Music Brainz')
+            .form-group
+              label(for='txtPubURL') Publisher's URL
+              input#txtPubURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/')
+            // Domains
+            .input-group
+              label(for='txtPubDomain') Publisher's Domain
+              input#txtPubDomain.form-control(type='text', placeholder='e.g. Music')
+              span.input-group-btn(style='padding-top:20px')
+                button#btnPubDomainAdd.btn.btn-default(type='button', onclick='$("#pubDomains").append($("#txtPubDomain").val() + ", ");$("#hidPubDomain").append($("#txtPubDomain").val() + ", ");$("#txtPubDomain").val("")') Add
+              input#hidPubDomain.form-control(type='hidden')
+            span#helpBlockDomain.help-block A Publisher should tag their data with one or more domains
+            span#pubDomains.form-control-static.text-primary
+            // Nature of Content
+            .input-group
+              label(for='txtPubContent') Nature of Content
+              input#txtPubContent.form-control(type='text', placeholder='e.g. Records')
+              span.input-group-btn(style='padding-top:20px')
+                button#btnPubContentAdd.btn.btn-default(type='button', onclick='$("#pubContent").append($("#txtPubContent").val() + ", ");$("#hidPubContent").append($("#txtPubContent").val() + ", ");$("#txtPubContent").val("")') Add
+              input#hidPubContent.form-control(type='hidden')
+            span#helpBlockDomain.help-block What kind of data does the Publisher Produce?
+            span#pubContent.form-control-static.text-primary
+            // API Formats
+            .input-group
+              label(for='txtPubAPI') API Formats
+              input#txtPubAPI.form-control(type='text', placeholder='e.g. Rest API')
+              span.input-group-btn(style='padding-top:20px')
+                button#btnPubAPIAdd.btn.btn-default(type='button', onclick='$("#pubAPI").append($("#txtPubAPI").val() + ", ");$("#hidPubAPI").append($("#txtPubAPI").val() + ", ");$("#txtPubAPI").val("")') Add
+              input#hidPubAPI.form-control(type='hidden')
+            span#pubAPI.form-control-static.text-primary
+            br
+            .form-group
+              label(for='txtPubLicence') Publisher's Licence
+              br
+              input#txtPubLicence.form-control(type='text', placeholder='Open/Private')
+            hr
+            h2 Do you know of any Data Consumer who successfully is using your products?
+            p Information About Consumers Using the Publishers APIs
+            form#formAddConsumer
+              .form-group
+                label(for='txtConName') Consumer's Name
+                input#txtConName.form-control(type='text', placeholder='e.g. BBC')
+              // Consumer's Aim
+              .input-group
+                label(for='txtConAim') Consumer's Aim
+                input#txtConAim.form-control(type='text', placeholder='e.g. News Enhancement')
+                span.input-group-btn(style='padding-top:20px')
+                  button#btnConAimAdd.btn.btn-default(type='button', onclick='$("#conAim").append($("#txtConAim").val() + ", ");$("#txtConAim").val("")') Add
+              span#helpBlockDomain.help-block For what is the Consumer using the API?
+              span#conAim.form-control-static.text-primary
+              .form-group
+                label(for='txtConDesc') Consumer's Description
+                textarea#txtConDesc.form-control(rows='5')
+              button#btnAddConsumer.btn.btn-default(type='button', onclick='$("#txtConsumers").append($("#txtConName").val() + "; "); addConsumer($("#txtConName").val(), $("#conAim").html(),$("#txtConDesc").val() ); $("#txtConName").val(""); $("#txtConDesc").val(""); $("#conAim").html("");') Add Consumer
+            span#txtConsumers.form-control-static.text-primary
+            br
+            button.btn.btn-default(type='submit', onclick='addPublisher(this);') Submit
+        .col-md-4
+          .bs-callout.bs-callout-info
+            h4 Publisher's Domain
+            p
+              | Data published should be at least tagged with one domain. Press the Add button for each domain.
+          .bs-callout.bs-callout-warning
+            h4 Nature of Content
+            p
+              | What will the Data consumer expect? JSON Records, RDF resources, Multimedia files etc...  Press the Add button for each content type.
+          .bs-callout.bs-callout-danger
+            h4 API Formats
+            p
+              | In what ways can a data consumer access your data? RESTful APIs, SPARQL Endpoint etc... Press the Add button for each API type.
+          .bs-callout.bs-callout-info(style='margin-top:280px')
+            h4 Consumer's Aim
+            p
+              | Why is the consumer using your data? For example News Enhancement or Forensic Analysis. Press the Add button for each aim.
+          .bs-callout.bs-callout-warning
+            h4 More Consumers
+            p
+              | Don't be shy to boast about successful consumers. For each consumer (including the first one), please press the Add Consumer button before submitting.
+      hr

@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    .container
+      link(rel='exhibit-data', type='application/json', href='publisher/all')
+      .row
+        .col-md-12
+          h1 Find your Match!
+          p
+            | Data Consumers are encouraged to find a suitable Publisher to 
+            i match
+            |  their needs for accessing data to do various tasks such as mashups, data integration, or even enhancement of current content. For searching an API using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | .
+      .row
+        .col-md-8
+          .bs-callout.bs-callout-info(ex:role='exhibit-lens', ex:onshow='prepareLens(this);')
+            input#pid(ex:value-content='._id', type='hidden')
+            a(ex:href-content='.uri')
+              h4
+                span(ex:content='.publisher')
+            br
+            br
+            | 			 Domain: 
+            span(ex:content='.domain')
+            br
+            br
+            | 			 Content Type: 
+            span(ex:content='.natureOfContent')
+            br
+            br
+            | 			 API Format: 
+            span(ex:content='.apiFormat')
+            br
+            br
+            | 			 Licence: 
+            span(ex:content='.licence')
+            br
+            br
+            hr
+            h5 Consumer Stories
+            span.spnCons.label.label-success(style='font-size:14px')
+            br
+            br
+            b Aim for using this Publisher:
+            br
+            span.spnAim
+            br
+            br
+            b The Story:
+            br
+            span.spnStory
+          div(ex:role='exhibit-view', ex:viewclass='Exhibit.TileView', ex:orders='.licence', ex:directions='ascending', ex:possibleorders='.domain, .publisher', ex:showall='true', ex:grouped='false')
+        .col-md-4
+          div(ex:role='facet', ex:expression='.domain', ex:sortmode='count', ex:facetlabel='Domain')
+          div(ex:role='facet', ex:expression='.licence', ex:sortmode='count', ex:facetlabel='Licence')
+          div(ex:role='facet', ex:expression='.apiFormat', ex:sortmode='count', ex:facetlabel='API Format')
+          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Content Type')
+          div(ex:role='facet', ex:expression='.publisher', ex:sortmode='count', ex:facetlabel='Publisher')
+    hr
+    // /container
