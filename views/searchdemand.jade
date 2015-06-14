@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    .container
+      link(rel='exhibit-data', type='application/json', href='demand/exhibit/all')
+      .row
+        .col-md-12
+          h1 Target New Opportunities
+          p
+            | Data Publishers are encouraged to provide services for the consumers demands, thus ensuring that publisher targets a possible niche in the market. For searching an API using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | .
+      .row
+        .col-md-8
+          .bs-callout.bs-callout-info(ex:role='exhibit-lens')
+            h4
+                span(ex:content='.domain')
+            br
+            br
+            | 			 Content Type: 
+            span(ex:content='.natureOfContent')
+            br
+            br
+            | 			 Aims: 
+            span(ex:content='.aim')
+            br
+            br
+            | 			 Description: 
+            span(ex:content='.description')
+           
+          div(ex:role='exhibit-view', ex:viewclass='Exhibit.TileView', ex:orders='.domain', ex:directions='ascending', ex:possibleorders='.domain, .aim', ex:showall='true', ex:grouped='false')
+        .col-md-4
+          div(ex:role='facet', ex:expression='.domain', ex:sortmode='count', ex:facetlabel='Domain')
+          div(ex:role='facet', ex:expression='.aim', ex:sortmode='count', ex:facetlabel='Aim')
+          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Content Type')
+    hr
+    // /container

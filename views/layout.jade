@@ -11,7 +11,7 @@ html(lang='en')
     script(type='text/javascript', src='http://api.simile-widgets.org/exhibit/STABLE/exhibit-api.js')
     script(type='text/javascript', src='/javascripts/jquery.min.js')
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')
-    title DSCloud - DSaaS:: Demand and Supply As A Service
+    title DSCloud - DSaaS:: Demand and Supply As A Service (BETA)
     style.
       body {
       padding-top: 50px;
@@ -34,6 +34,8 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/') Demand and Supply Cloud
+            sup(style='font-weight: bold')
+              | BETA
         .navbar-collapse.collapse(style='float:right')
           ul.nav.navbar-nav
             li
@@ -42,6 +44,10 @@ html(lang='en')
               a(href='add') Add your Service
             li
               a(href='search') Search for Service
+            li
+              a(href='demand') Ask for Service
+            li
+              a(href='searchdemand') What's the Demand?
             li
               a(href='contact') Contact
         // /.navbar-collapse

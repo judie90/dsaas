@@ -42,30 +42,8 @@ router.get('/exhibit/all', function(req, res, next) {
 			items['items'][i]['label'] = label;
 		}
 		
-		items['properties'] = { "knownConsumers" : { "valueType" : "item" }, "consumer" : { "valueType" : "text" } };
+		//items['properties'] = { "knownConsumers" : { "valueType" : "item" }, "consumer" : { "valueType" : "text" } };
         res.json(items);
-    });
-});
-
-router.get('/exhibit/consumers', function(req, res, next) {
-    var db = req.db;
-    var collection = db.get('publishers');
-    collection.find({},{},function(e,docs){
-		var allCons = [];
-		for(var pub in docs){
-			var cns = docs[pub]["knownConsumers"];
-			for(var el in cns){
-				consumer = {};
-				consumer['consumer'] = cns[el]['consumer'];
-				consumer['consumersAim'] = cns[el]['consumersAim'];
-				consumer['consumersDescription'] = cns[el]['consumersDescription'];
-				allCons.push(consumer);
-			}
-		}
-	
-		var items = {};
-		items['items'] = allCons;
-		res.json(items);
     });
 });
 

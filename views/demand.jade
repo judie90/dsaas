@@ -1,0 +1,54 @@
+extends layout
+
+block content
+   .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Demand an API ...
+          h2 ... and data for your use case
+          p
+            | Data Consumers should take full advantage of this Ecosystem and ask for their needs on this portal. Potential Data Publishers can use this portal by checking for the current demands 
+            a(href='/searchdemand') here
+            |.  For submitting your demand using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | .
+      .row
+        .col-md-8
+          form#formAddPub
+            .form-group
+              label(for='txtDomain') Domain
+              input#txtDomain.form-control(type='text', placeholder='e.g. Governmental, Weather, Cultural  etc...')
+            // Nature of Content
+            .input-group
+              label(for='txtDemandContent') Nature of Content
+              input#txtDemandContent.form-control(type='text', placeholder='e.g. Records, Multimedia, Resources  etc...')
+              span.input-group-btn(style='padding-top:20px')
+                button#btnDemandContentAdd.btn.btn-default(type='button', onclick='$("#demandContent").append($("#txtDemandContent").val() + ", ");$("#hidDemandContent").append($("#txtDemandContent").val() + ", ");$("#txtDemandContent").val("")') Add
+              input#hidDemandContent.form-control(type='hidden')
+            span#helpBlockDomain.help-block What kind of data is needed?
+            span#demandContent.form-control-static.text-primary  
+            // Aim
+            .input-group
+              label(for='txtDemandAim') Aim for Reusing Data
+              input#txtDemandAim.form-control(type='text', placeholder='e.g. News Enhancement, Insurance Services etc...')
+              span.input-group-btn(style='padding-top:20px')
+                button#btnDemandAimAdd.btn.btn-default(type='button', onclick='$("#aimContent").append($("#txtDemandAim").val() + ", ");$("#hidAimContent").append($("#txtDemandAim").val() + ", ");$("#txtPubContent").val("")') Add
+              input#hidAimContent.form-control(type='hidden')
+            span#helpBlockDomain.help-block What do you plan to do with the data?
+            span#aimContent.form-control-static.text-primary  
+            .form-group
+              label(for='txtConDesc') Usage Description
+              textarea#txtConDesc.form-control(rows='5')			  
+            br
+            button.btn.btn-default(type='submit', onclick='addNewDemand(this);') Submit
+        .col-md-4
+          .bs-callout.bs-callout-info
+            h4 Nature of Content
+            p
+              | What will the Data consumer expect? JSON Records, RDF resources, Multimedia files etc...  Press the Add button for each content type.
+          .bs-callout.bs-callout-warning
+            h4 Demand's Aim
+            p
+              | How do you plan to use potential data? For example News Enhancement or Forensic Analysis. Please use short 2/3 word descriptions. For further discussion on how you plan to use the consumed data should be written in the Usage Description text box. Press the Add button for each aim. 
+      hr

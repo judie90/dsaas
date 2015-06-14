@@ -1,9 +1,6 @@
 function addPublisher(event){
 	
 	//TODO: validation
-	
-	
-	
 	addPublisher = {};
 	addPublisher['publisher'] = $('#formAddPub input#txtPubName').val();
 	addPublisher['uri'] = $('#formAddPub input#txtPubURL').val();
@@ -26,7 +23,6 @@ function addPublisher(event){
 	
 	console.log(addPublisher);
 	
-		
 	
     //Use AJAX to post the object to our adduser service
     $.ajax({
@@ -115,14 +111,32 @@ function prepareLens(elmt) {
 			}
     });
 }
-function myfunc(){
-	console.log("in");
-	var hidIn = $("div > input");
-	for(var i in $("div > input").length){
-		alert(i);
-		var extraData = getPubById($(hidIn[i]).val());
-		$($("span.spanCons")[i]).html(extraData['consumer']);
-		$($("span.spanConsAim")[i]).html(extraData['consumersAim']);
-		$($("span.spnConsStory")[i]).html(extraData['consumersDescription']);
-	}
+
+function addNewDemand(event){
+	//TODO validation
+	
+	addDemand = {};
+	addDemand['domain'] = $('#formAddPub input#txtDomain').val();
+	addDemand['natureOfContent'] = clean($('#formAddPub input#hidDemandContent').text());
+	addDemand['aim'] = clean($('#formAddPub input#hidAimContent').text());
+	addDemand['description'] = $('#formAddPub input#txtConDesc').val();
+
+    $.ajax({
+        type: 'POST',
+        data: JSON.stringify(addDemand),
+        url: '/demand/add',
+        dataType: 'JSON',
+		contentType: "application/json",
+		traditional: true
+    }).done(function( response ) {
+        // Check for successful (blank) response
+        if (response.msg === '') {
+
+        }
+        else {
+            // If something goes wrong, alert the error message that our service returned
+            alert('Error: ' + response.msg);
+        }
+    });
+	
 }

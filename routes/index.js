@@ -26,4 +26,12 @@ router.get('/contact', function(req, res, next){
 	res.render('contact');
 });
 
+router.get('/demand', function(req, res, next){
+	res.render('demand');
+});
+
+router.get('/searchdemand', function(req, res, next){
+	res.render('searchdemand');
+});
+
 module.exports = router;
