@@ -34,6 +34,8 @@ function addPublisher(event){
 		traditional: true
     }).done(function( response ) {
         // Check for successful (blank) response
+		alert("Thank you for your contribution.");
+		location.href = 'search';
         if (response.msg === '') {
 
         }
@@ -130,6 +132,8 @@ function addNewDemand(event){
 		traditional: true
     }).done(function( response ) {
         // Check for successful (blank) response
+		alert("Thank you for your contribution.");
+		location.href = 'searchdemand';
         if (response.msg === '') {
 
         }
