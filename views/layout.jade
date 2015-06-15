@@ -7,10 +7,9 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     //link(rel='icon', href='favicon.ico')
-    link(rel='exhibit-data', type='application/json', href='publisher/exhibit/all')
+    block exhibit
+    //link(rel='exhibit-data', type='application/json', href='publisher/exhibit/all')
     script(type='text/javascript', src='http://api.simile-widgets.org/exhibit/STABLE/exhibit-api.js')
-    script(type='text/javascript', src='/javascripts/jquery.min.js')
-    script(type='text/javascript', src='/javascripts/bootstrap.min.js')
     title DSCloud - DSaaS:: Demand and Supply As A Service (BETA)
     style.
       body {
@@ -55,5 +54,7 @@ html(lang='en')
     block content
     footer
         p
-          | Maintained by Judie Attard
+          | 
     script(type='text/javascript', src='/javascripts/global.js')
+    script(type='text/javascript', src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.min.js')

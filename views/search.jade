@@ -1,8 +1,8 @@
 extends layout
-
+block exhibit
+   link(rel='exhibit-data', type='application/json', href='publisher/exhibit/all')
 block content
     .container
-      link(rel='exhibit-data', type='application/json', href='publisher/exhibit/all')
       .row
         .col-md-12
           h1 Find your Match!
