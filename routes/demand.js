@@ -18,6 +18,7 @@ router.post('/add', function(req, res) {
     var db = req.db;
     var collection = db.get('demands');
 	
+	//TODO validation
 	console.log(req.body);
 	collection.insert(req.body, function(err, result){
         res.send(

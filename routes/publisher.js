@@ -19,6 +19,7 @@ router.post('/add', function(req, res) {
     var collection = db.get('publishers');
 	
 	console.log(req.body);
+	//TODO validation
 	collection.insert(req.body, function(err, result){
         res.send(
             (err === null) ? { msg: '' } : { msg: err }
@@ -64,14 +65,14 @@ router.get('/id/:idNumber', function(req, res, next) {
 });
 
 /* Find Publisher by Field */
-router.get('/:field/:domain', function(req, res, next) {
+router.get('/:field/:value', function(req, res, next) {
     var db = req.db;
     var collection = db.get('publishers');
 	var field = req.params.field;
-	var domain = req.params.domain;
+	var value = req.params.value;
 	
 	var query = {};
-	var regex = new RegExp('^' + domain + '+', 'i');
+	var regex = new RegExp('^' + value + '+', 'i');
 	query[field] = regex;
 	
 	console.log(query);

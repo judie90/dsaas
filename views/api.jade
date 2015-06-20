@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  .container
+    h2 Content Negotiation
+    | By default, the dsaas will return a JSON object. In the future, the web service will support the following content-types:
+    ul
+      li text/plain
+      li text/html
+      li application/xml
+      li
+        | application/rdf+xml (We plan to have the platform running on semantic technologies)
+    h2 Operations
+    table.table.table-striped
+      thead
+        tr
+          th Path
+          th Description
+      tbody#tbody
+        tr
+          td /publishers/all
+          td Retreives all information on the publishers
+        tr
+          td /publishers/add
+          td
+            | Adds a publisher to the web application. The passed json content should have the following stucture (values are added as an example):
+            pre.
+             {
+               'publisher' : 'MusicBrainz',
+               'uri' : 'https://musicbrainz.org/',
+               'domain' : ['Music'],
+               'natureOfContent' : ['Records'],
+               'apiFormat' : ['RESTful API'],
+               'licence' : 'Open', 
+               'knownConsumers' : [{
+                  'consumer' :'BBC', 
+                  'consumersAim' : ['News Enhancement'], 
+                  'consumersDescription' : 'Some Description'
+                }]
+             }                                                        
+        tr
+          td /publishers/exhibit/all
+          td
+            | Retreives all information on the publishers that can be used in an 
+            a(href='http://www.simile-widgets.org/exhibit/', target='_blank') Exhibit
+            |  interface
+        tr
+          td /publisher/:field/:value
+          td
+            | Searches a particular publisher according to the field (e.g. publisher) and its value (e.g. MusicBrainz)
+        tr
+          td /demand/all
+          td Retreives all information regarding the demand of data
+        tr
+          td /demand/add
+          td
+            | Adds a demand to the web application. The passed json object should have the following structure (values are added as an example):
+            pre.
+              {
+                 'domain' : 'Weather', 
+                 'natureOfContent' : ['Records','Satellite Images'], 
+                 'aim' : ['News Enhancement'], 
+                 'description' : 'some description'
+              }              
+        tr
+          td /demand/exhibit/all
+          td
+            | Retreives all information on the demand that can be used in an 
+            a(href='http://www.simile-widgets.org/exhibit/', target='_blank') Exhibit
+            |  interface
+        tr
+          td /demand/:field/:value
+          td
+            | Searches a particular demand according to the field (e.g. domain) and its value (e.g. Weather)
+
