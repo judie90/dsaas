@@ -7,7 +7,7 @@ block content
         .col-md-12
           h1 Contribute to the Demand and Supply Cloud
           p
-            | Data publishers are encouraged to advertise their data API here for consumption. For submitting your API using the DSaaS RESTful API, click 
+            | Data publishers are encouraged to advertise their data API here. This will advertise existing data and encourage its consumption. For submitting your API using the DSaaS RESTful API, click 
             a(href='/api') here
             | .
       .row
@@ -49,9 +49,9 @@ block content
             .form-group
               label(for='txtPubLicence') Publisher's Licence
               br
-              input#txtPubLicence.form-control(type='text', placeholder='Open/Private')
+              input#txtPubLicence.form-control(type='text', placeholder='Open/Private/Limited')
             hr
-            h2 Do you know of any Data Consumer who successfully is using your products?
+            h2 Do you know of any Data Consumer who successfully re-used your data product?
             p Information About Consumers Using the Publishers APIs
             form#formAddConsumer
               .form-group
@@ -59,14 +59,14 @@ block content
                 input#txtConName.form-control(type='text', placeholder='e.g. BBC')
               // Consumer's Aim
               .input-group
-                label(for='txtConAim') Consumer's Aim
+                label(for='txtConAim') Consumer's Motivation
                 input#txtConAim.form-control(type='text', placeholder='e.g. News Enhancement')
                 span.input-group-btn(style='padding-top:20px')
                   button#btnConAimAdd.btn.btn-default(type='button', onclick='$("#conAim").append($("#txtConAim").val() + ", ");$("#txtConAim").val("")') Add
-              span#helpBlockDomain.help-block For what is the Consumer using the API?
+              span#helpBlockDomain.help-block What is the Consumer using your data for?
               span#conAim.form-control-static.text-primary
               .form-group
-                label(for='txtConDesc') Consumer's Description
+                label(for='txtConDesc') Use Case Description
                 textarea#txtConDesc.form-control(rows='5')
               button#btnAddConsumer.btn.btn-default(type='button', onclick='$("#txtConsumers").append($("#txtConName").val() + "; "); addConsumer($("#txtConName").val(), $("#conAim").html(),$("#txtConDesc").val() ); $("#txtConName").val(""); $("#txtConDesc").val(""); $("#conAim").html("");') Add Consumer
             span#txtConsumers.form-control-static.text-primary
@@ -76,19 +76,19 @@ block content
           .bs-callout.bs-callout-info
             h4 Publisher's Domain
             p
-              | Data published should be at least tagged with one domain. Press the Add button for each domain.
+              | Data published should be tagged with at least one domain. Press the Add button for each domain.
           .bs-callout.bs-callout-warning
             h4 Nature of Content
             p
-              | What will the Data consumer expect? JSON Records, RDF resources, Multimedia files etc...  Press the Add button for each content type.
+              | What is the format of the provided data? JSON Records, RDF resources, Multimedia files, etc.  Press the Add button for each content type.
           .bs-callout.bs-callout-danger
             h4 API Formats
             p
-              | In what ways can a data consumer access your data? RESTful APIs, SPARQL Endpoint etc... Press the Add button for each API type.
+              | How is your data available for access? RESTful APIs, SPARQL Endpoint etc. Press the Add button for each API type.
           .bs-callout.bs-callout-info(style='margin-top:280px')
             h4 Consumer's Aim
             p
-              | Why is the consumer using your data? For example News Enhancement or Forensic Analysis. Press the Add button for each aim.
+              | Why is the consumer using your data? For example News Enhancement or Forensic Analysis. Press the Add button for each motivation.
           .bs-callout.bs-callout-warning
             h4 More Consumers
             p

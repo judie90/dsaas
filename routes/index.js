@@ -34,4 +34,9 @@ router.get('/searchdemand', function(req, res, next){
 	res.render('searchdemand');
 });
 
+router.post('/contactres', function(req, res, next){
+	res.render('contactres');
+});
+
+
 module.exports = router;

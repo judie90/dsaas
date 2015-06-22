@@ -70,5 +70,41 @@ app.use(function(err, req, res, next) {
   });
 });
 
+//mailer
+
+var nodemailer = require('nodemailer');
+
+app.post('/contactres', function (req, res) {
+  var mailOpts;
+  
+	var transporter = nodemailer.createTransport('SMTP', {
+      service: 'Gmail',
+      auth: {
+          user: "jerdebattista@gmail.com",
+          pass: "PASSWORD" 
+      }
+  });
+	
+  //Mail options
+  mailOpts = {
+      from: req.body.txtName + " &lt;" + req.body.txtEmail + "&gt;", //grab form data from the request body object
+      to: "judieattard@gmail.com",
+      subject: "DSAAS contact form",
+      text: req.body.Message
+  };
+  transporter.sendMail(mailOpts, function (error, response) {
+      //Email not sent
+      if (error) {
+          res.render("contactres", {msg: "Error occured, message not sent.", err: true, page: "contact" })
+      }
+      //Yay!! Email sent
+      else {
+          res.render("contactres", {msg: 'Message sent! Thank you.', err: false, page: "contact" })
+      }
+  });
+});
+
+
+
 
 module.exports = app;

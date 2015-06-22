@@ -142,5 +142,4 @@ function addNewDemand(event){
             alert('Error: ' + response.msg);
         }
     });
-	
 }

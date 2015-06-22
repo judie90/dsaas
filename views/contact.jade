@@ -1,0 +1,22 @@
+extends layout
+
+block content
+   .container
+      .row
+        .col-md-12
+          h1 Contact Us
+          p We would love to hear from you. Have suggestions for improving our service, questions, or comments? Fill out the form below with your information and feedback and we will get back to you as soon as we can.
+      .row
+        .col-md-8
+           form#formContact(action='/contactres', name='contactus', method='post')
+            .form-group
+              label(for='txtName') Name
+              input#txtName.form-control(type='text')
+            .form-group
+              label(for='txtEmail') Email
+              input#txtEmail.form-control(type='text')
+            .form-group
+              label(for='txtMsg') Message
+              textarea#txtConDesc.form-control(rows='5')
+            //input(name='submit', type='submit', value='Send', id='submit')
+            input.button.btn.btn-default(name='submit', type='submit', value='Submit Message', id='submit')
