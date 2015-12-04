@@ -20,35 +20,24 @@ block content
               label(for='txtDomain') Domain
               input#txtDomain.form-control(type='text', placeholder='e.g. Governmental, Weather, Cultural,  etc.')
             // Nature of Content
-            .input-group
+            .form-group
               label(for='txtDemandContent') Nature of Content
-              input#txtDemandContent.form-control(type='text', placeholder='e.g. Records, Multimedia, Resources,  etc.')
-              span.input-group-btn(style='padding-top:20px')
-                button#btnDemandContentAdd.btn.btn-default(type='button', onclick='$("#demandContent").append($("#txtDemandContent").val() + ", ");$("#hidDemandContent").append($("#txtDemandContent").val() + ", ");$("#txtDemandContent").val("")') Add
-              input#hidDemandContent.form-control(type='hidden')
-            span#helpBlockDomain.help-block What kind of data is needed?
-            span#demandContent.form-control-static.text-primary  
+              input#txtDemandContent.form-control(type='text', data-role='tagsinput', placeholder='e.g. Records, Multimedia, Resources,  etc.')
             // Aim
-            .input-group
-              label(for='txtDemandAim') Motivation for Reusing Data
-              input#txtDemandAim.form-control(type='text', placeholder='e.g. News Enhancement, Insurance Services, etc.')
-              span.input-group-btn(style='padding-top:20px')
-                button#btnDemandAimAdd.btn.btn-default(type='button', onclick='$("#aimContent").append($("#txtDemandAim").val() + ", ");$("#hidAimContent").append($("#txtDemandAim").val() + ", ");$("#txtPubContent").val("")') Add
-              input#hidAimContent.form-control(type='hidden')
-            span#helpBlockDomain.help-block What do you plan to do with the data?
-            span#aimContent.form-control-static.text-primary  
+            .form-group
+              label(for='txtDemandContent') Motivation for Re-using Data
+              input#txtDemandAim.form-control(type='text', data-role='tagsinput', placeholder='e.g. News Enhancement, Insurance Services, etc.')
             .form-group
               label(for='txtConDesc') Usage Description
-              textarea#txtConDesc.form-control(rows='5')			  
-            br
-            button.btn.btn-default(type='submit', onclick='addNewDemand(this);') Submit
+              textarea#txtConDesc.form-control(rows='5')
+            button.btn.btn-default(type='button', onclick='addNewDemand(this);') Submit
         .col-md-4
           .bs-callout.bs-callout-info
             h4 Nature of Content
             p
-              | What is desired format for the required data? JSON Records, RDF resources, Multimedia files etc.  Press the Add button for each content type.
+              | What is the desired format(s) for the required data? JSON Records, RDF resources, Multimedia files etc.  Press the Enter button for each content type.
           .bs-callout.bs-callout-warning
             h4 Motivation for Demand
             p
-              | How do you plan to use the data you request? For example News Enhancement or Forensic Analysis. Please use short 2/3 word descriptions. Press the Add button for each motivation. Further discussion on how you plan to use the data should be written in the Usage Description text box. 
+              | How do you plan to use the data you request? For example News Enhancement or Forensic Analysis. Please use short 2/3 word descriptions. Press the Enter button for each motivation. Further discussion on how you plan to use the data should be written in the Usage Description text box. 
       hr
