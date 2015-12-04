@@ -28,3 +28,17 @@ node_modules
 
 # Data directory
 data
+
+data/dsaas.0
+
+data/dsaas.ns
+
+data/journal/j._0
+
+data/journal/lsn
+
+data/local.0
+
+data/local.ns
+
+data/mongod.lock
