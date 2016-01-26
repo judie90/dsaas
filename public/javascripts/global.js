@@ -69,9 +69,9 @@ function addPublisher(event){
 		
 		addPublisher['publisher'] = $('#formAddPub input#txtPubName').val();
 		addPublisher['uri'] = $('#formAddPub input#txtPubURL').val();
-		addPublisher['domain'] = clean($('#formAddPub input#hidPubDomain').val());
-		addPublisher['natureOfContent'] = clean($('#formAddPub input#hidPubContent').val());
-		addPublisher['apiFormat'] = clean($('#formAddPub input#hidPubAPI').val());
+		addPublisher['domain'] = clean($('#formAddPub input#txtPubDomain').val());
+		addPublisher['natureOfContent'] = clean($('#formAddPub input#txtPubContent').val());
+		addPublisher['apiFormat'] = clean($('#formAddPub input#txtPubAPI').val());
 		addPublisher['licence'] = $('#formAddPub input#txtPubLicence').val();
 		addPublisher['language'] = $('#ddLanguage').val();
 		addPublisher['notes'] = $('#formAddPub input#txtNotes').text();
@@ -250,7 +250,8 @@ function addNewDemand(event){
 	        }
 	        else {
 	            // If something goes wrong, alert the error message that our service returned
-	            alert('Error: ' + response.msg);
+						console.log(response.msg);			
+						console.log(response);
 	        }
 	    });
 	}
