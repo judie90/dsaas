@@ -39,7 +39,7 @@ router.get('/exhibit/all', function(req, res, next) {
 			var id = items['items'][i]["_id"];
 			items['items'][i]['id'] = id;
 			
-			var label = items['items'][i]["publisher"];
+			var label = items['items'][i]["domain"];
 			items['items'][i]['label'] = label;
 		}
 		
