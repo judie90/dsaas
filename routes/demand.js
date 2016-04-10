@@ -6,30 +6,31 @@ var ContentNegotiation  = require('./helpers/ContentNegotiation').ContentNegotia
 var helperCN = new ContentNegotiation();
 var commons = require('./helpers/commons').commons;
 var helperCommons = new commons();
-
+var namespaces = require('./helpers/commons').namespaces;
+var ns = new namespaces();
 
 var SparqlClient = require('sparql-client');
 
 
 var genericInsert = "INSERT DATA { %%TRIPLES%% }";
 
-var DSO_NS = "http://example.org/dso#"; // *****CHANGE NS ACCORDINGLY*****
-var DCT_NS = "http://purl.org/dc/terms/";
-var XSD_NS = "http://www.w3.org/2001/XMLSchema#";
-var RDFS_NS = "http://www.w3.org/2000/01/rdf-schema#";
-var OWL_NS = "http://www.w3.org/2002/07/owl#";
-var FOAF_NS = "http://xmlns.com/foaf/0.1/";
-var DB_NS = "http://dbpedia.org/ontology/";
-var RDF_NS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-var DCAT_NS = "http://www.w3.org/ns/dcat#";
-var SKOS_NS = "http://www.w3.org/2008/05/skos#";
-var SCH_NS = "http://schema.org/";
-var OA_NS = "http://www.w3.org/ns/oa#";
-var DUV_NS = "http://www.w3.org/ns/duv#";
-var GEONAMES_NS = "http://sws.geonames.org/";
-var LANG_NS = "http://id.loc.gov/vocabulary/iso639-1/";
-var SPAR_NS = "http://www.sparontologies.net/mediatype/";
-var XSD_NS = "http://www.w3.org/2001/XMLSchema#";
+var DSO_NS = ns.DSO_NS;
+var DCT_NS = ns.DCT_NS;
+var XSD_NS = ns.XSD_NS;
+var RDFS_NS = ns.RDFS_NS;
+var OWL_NS =  ns.OWL_NS;
+var FOAF_NS = ns.FOAF_NS;
+var DB_NS = ns.DB_NS;
+var RDF_NS = ns.RDF_NS;
+var DCAT_NS = ns.DCAT_NS;
+var SKOS_NS = ns.SKOS_NS;
+var SCH_NS = ns.SCH_NS;
+var OA_NS = ns.OA_NS;
+var DUV_NS = ns.DUV_NS;
+var GEONAMES_NS = ns.GEONAMES_NS;
+var XSD_NS = ns.XSD_NS;
+var LANG_NS = ns.LANG_NS;
+var SPAR_NS = ns.SPAR_NS;
 
 
 /*
@@ -43,9 +44,8 @@ router.post('/add', function(req, res) {
 	var inputData = req.body;
 	var insertTriples = "";
 
-	var demandid = "<urn:" + guid() + ">";
-	var submitterid = "<urn:" + guid() + ">";
-
+  var demandid   = "<"+GLOBAL.payLevelDomain+"/demand/"+ guid() + ">";
+  var submitterid   = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
 	//create datasetID
 	insertTriples += demandid + " a <" + DSO_NS + "DataRequest> . \n";
@@ -137,8 +137,7 @@ router.post('/add/interest', function(req, res) {
   var inputData = req.body;
 	var insertTriples = "";
 
-  var submitterid = "<urn:" + guid() + ">";
-
+  var submitterid   = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
 	insertTriples += " <"+inputData['demandId']  + "> <"+DSO_NS+"secondedBy> "+ submitterid+" . \n";
   insertTriples += submitterid + " a <" + FOAF_NS + "Agent> . \n";

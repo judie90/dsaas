@@ -9,26 +9,31 @@ var helperCN = new ContentNegotiation();
 var commons = require('./helpers/commons').commons;
 var helperCommons = new commons();
 
+var namespaces = require('./helpers/commons').namespaces;
+var ns = new namespaces();
+
 
 var genericInsert = "INSERT DATA { %%TRIPLES%% }";
 
-var DSO_NS = "http://example.org/dso#";
-var DCT_NS = "http://purl.org/dc/terms/";
-var XSD_NS = "http://www.w3.org/2001/XMLSchema#";
-var RDFS_NS = "http://www.w3.org/2000/01/rdf-schema#";
-var OWL_NS = "http://www.w3.org/2002/07/owl#";
-var FOAF_NS = "http://xmlns.com/foaf/0.1/";
-var DB_NS = "http://dbpedia.org/ontology/";
-var RDF_NS = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
-var DCAT_NS = "http://www.w3.org/ns/dcat#";
-var SKOS_NS = "http://www.w3.org/2008/05/skos#";
-var SCH_NS = "http://schema.org/";
-var OA_NS = "http://www.w3.org/ns/oa#";
-var DUV_NS = "http://www.w3.org/ns/duv#";
-var GEONAMES_NS = "http://sws.geonames.org/";
-var XSD_NS = "http://www.w3.org/2001/XMLSchema#";
-var LANG_NS = "http://id.loc.gov/vocabulary/iso639-1/";
-var SPAR_NS = "http://www.sparontologies.net/mediatype/";
+var DSO_NS = ns.DSO_NS;
+var DCT_NS = ns.DCT_NS;
+var XSD_NS = ns.XSD_NS;
+var RDFS_NS = ns.RDFS_NS;
+var OWL_NS =  ns.OWL_NS;
+var FOAF_NS = ns.FOAF_NS;
+var DB_NS = ns.DB_NS;
+var RDF_NS = ns.RDF_NS;
+var DCAT_NS = ns.DCAT_NS;
+var SKOS_NS = ns.SKOS_NS;
+var SCH_NS = ns.SCH_NS;
+var OA_NS = ns.OA_NS;
+var DUV_NS = ns.DUV_NS;
+var GEONAMES_NS = ns.GEONAMES_NS;
+var XSD_NS = ns.XSD_NS;
+var LANG_NS = ns.LANG_NS;
+var SPAR_NS = ns.SPAR_NS;
+
+
 
 /*
  * POST to add dataset (including distributions and use cases).
@@ -41,9 +46,8 @@ router.post('/add/dataset', function(req, res) {
 	var inputData = req.body;
 	var insertTriples = "";
 
-	var datasetid = "<urn:" + guid() + ">";
-	var publisherid = "<urn:" + guid() + ">";
-
+	var datasetid   = "<"+GLOBAL.payLevelDomain+"/dataset/"+ guid() + ">";
+	var publisherid = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
 	//create datasetID
 	insertTriples += datasetid + " a <" + DCAT_NS + "Dataset> . \n";
@@ -117,7 +121,7 @@ router.post('/add/dataset', function(req, res) {
 	}
 
 	//description
-	insertTriples += datasetid + " <"+DCT_NS+"description> \""+inputData['description']+"\"^^<"+XSD_NS+"string> . \n";
+	insertTriples += datasetid + " <"+DCT_NS+"description> \""+inputData['description'].replace(/\n/g,"\\n")+"\"^^<"+XSD_NS+"string> . \n";
 
 	var useCaseDistributions = [];
 
@@ -125,11 +129,14 @@ router.post('/add/dataset', function(req, res) {
 	for(usecase in inputData['useCases']){
 		var useCaseInstance = {};
 
-		var usecaseid = "<urn:" + guid() + ">";
-		var generatorid = "<urn:" + guid() + ">";
+    var generatorid   = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
+    var usecaseid = "<"+GLOBAL.payLevelDomain+"/usecase/"+ guid() + ">";
 
 		insertTriples += usecaseid + " <"+DSO_NS+"usesDataset> "+datasetid+" . \n";
 		insertTriples += usecaseid + " a <" + DSO_NS + "UseCase> . \n";
+
+    insertTriples += usecaseid + " <"+DCT_NS+"title> \""+inputData['useCases'][usecase]['caseTitle']+"\"^^<"+XSD_NS+"string> . \n";
+
 
 		//generator
 		insertTriples += usecaseid + " <"+DSO_NS+"generator> "+ generatorid + " . \n";
@@ -163,8 +170,8 @@ router.post('/add/dataset', function(req, res) {
 
 	//distribution data
 	for(distribution in inputData['distributions']){
-		var distributionid = "<urn:" + guid() + ">";
-		var distributorid = "<urn:" + guid() + ">";
+    var distributionid   = "<"+GLOBAL.payLevelDomain+"/distribution/"+ guid() + ">";
+    var distributorid = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
 		insertTriples += distributionid + " a <" + DCAT_NS + "Distribution> . \n";
 		insertTriples += datasetid + " <"+DCAT_NS+"distribution> "+distributionid+" . \n";
@@ -251,8 +258,8 @@ router.post('/add/distribution', function(req, res) {
 
 	var datasetid = "<" + inputData['datasetID'] + ">";
 
-	var distributionid = "<urn:" + guid() + ">";
-	var distributorid = "<urn:" + guid() + ">";
+  var distributionid   = "<"+GLOBAL.payLevelDomain+"/distribution/"+ guid() + ">";
+	var distributorid = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
 	insertTriples += datasetid + " <"+DCAT_NS+"distribution> "+distributionid+" . \n";
 	insertTriples += distributionid + " a <" + DCAT_NS + "Distribution> . \n";
@@ -332,10 +339,10 @@ router.post('/add/usecase', function(req, res) {
 	var insertTriples = "";
 
 	var datasetid = "<" + inputData['datasetID'] + ">";
-	var generatorid = "<urn:" + guid() + ">";
 
-	//use case data
-	var usecaseid = "<urn:" + guid() + ">";
+  var generatorid   = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
+  var usecaseid = "<"+GLOBAL.payLevelDomain+"/usecase/"+ guid() + ">";
+
 
 	insertTriples += usecaseid + " <"+DSO_NS+"usesDataset> "+datasetid+" . \n";
 	insertTriples += usecaseid + " a <" + DSO_NS + "UseCase> . \n";

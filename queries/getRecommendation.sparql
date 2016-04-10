@@ -11,4 +11,4 @@ WHERE
 	<http://purl.org/dc/terms/description> ?datasetDescription .
 }
 GROUP BY
-?dataset ?title ?datasetDescription 
+?dataset ?title ?datasetDescription

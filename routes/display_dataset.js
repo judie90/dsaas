@@ -41,8 +41,9 @@ router.get('/:uri', function(req, res, next){
 		object['distribution'] = results['distribInfo'];
 		object['cases'] = results['caseInfo'];
 
+
 		if (object['language'] != null)
-			object['languagePrefLabel'] = helperCommons.getGeoNameFromExternal(results['language'])
+			object['languagePrefLabel'] = helperCommons.getLanguageFromExternal(object['language'])
 		else
 			object['languagePrefLabel'] = "Unknown Language";
 
@@ -53,7 +54,7 @@ router.get('/:uri', function(req, res, next){
 
 _getDatasetInformation = function(id, endpoint, callback){
 	var selectAll = fs.readFileSync('./queries/getPublisherDetails.sparql', 'utf8'); //reads the query into a string
-	selectAll = selectAll.replace(/%%id%%/g, id)
+	selectAll = selectAll.replace(/%%id%%/g, GLOBAL.payLevelDomain+"/dataset/"+id)
 
 	_queryEndpoint(endpoint, selectAll, function(error,results){
 		if (results == null) console.log(error)
@@ -65,6 +66,8 @@ _getDatasetInformation = function(id, endpoint, callback){
 		object['pubUri'] = results['results']['bindings'][0]['publisherURL']['value'];
 		object['pubName'] = results['results']['bindings'][0]['publisherName']['value'];
 		object['language'] = results['results']['bindings'][0]['language']['value'];
+		object['licenseLabel'] = results['results']['bindings'][0]['licenseLabel']['value'];
+		object['licenseText'] = results['results']['bindings'][0]['licenseText']['value'];
 		object['license'] = results['results']['bindings'][0]['license']['value'];
 		if (results['results']['bindings'][0]['natureOfContent'] != null) {
 			object['natureOfContent'] = results['results']['bindings'][0]['natureOfContent']['value'].split(",");
@@ -92,34 +95,38 @@ _getDatasetInformation = function(id, endpoint, callback){
 
 _getDistributionInformation = function(id, endpoint, callback){
 	var distribution = fs.readFileSync('./queries/getDistributionsForDataset.sparql', 'utf8'); //reads the query into a string
-	distribution = distribution.replace("%%id%%", id)
+	distribution = distribution.replace("%%id%%", GLOBAL.payLevelDomain+"/dataset/"+id)
 
 	distribs = [];
 	_queryEndpoint(endpoint, distribution, function(error,results){
 		theResults = results['results']['bindings'];
 
-		for(idx in theResults){
-				object = {};
+		if (results['results']['bindings'].length > 0){
+			console.log(results['results']['bindings'].length);
+			for(idx in theResults){
+					object = {};
 
-				object['distributionURI'] = results['results']['bindings'][idx]['distributionURI']['value']; //resource uri (not website)
-				object['distribTitle'] = results['results']['bindings'][idx]['title']['value'];
-				if(results['results']['bindings'][idx]['modified'] != null){
-					object['modified'] = results['results']['bindings'][idx]['modified']['value'];
-				}
-				object['mediaType'] = results['results']['bindings'][idx]['mediaType']['value'];
-				object['accessURL'] = results['results']['bindings'][idx]['accessURL']['value'];
-				if(results['results']['bindings'][idx]['downloadURL'] != null) {
-					object['downloadURL'] = results['results']['bindings'][idx]['downloadURL']['value'];
-				}
-				if(results['results']['bindings'][idx]['distributorName'] != null) {
-					object['distributorName'] = results['results']['bindings'][idx]['distributorName']['value'];
-				}
-				if(results['results']['bindings'][idx]['distributorHomePage'] != null) {
-					object['distributorHomePage'] = results['results']['bindings'][idx]['distributorHomePage']['value'];
-				}
+					object['distributionURI'] = results['results']['bindings'][idx]['distributionURI']['value']; //resource uri (not website)
+					object['distribTitle'] = results['results']['bindings'][idx]['title']['value'];
+					if(results['results']['bindings'][idx]['modified'] != null){
+						object['modified'] = results['results']['bindings'][idx]['modified']['value'];
+					}
+					object['mediaType'] = results['results']['bindings'][idx]['mediaType']['value'];
+					object['accessURL'] = results['results']['bindings'][idx]['accessURL']['value'];
+					if(results['results']['bindings'][idx]['downloadURL'] != null) {
+						object['downloadURL'] = results['results']['bindings'][idx]['downloadURL']['value'];
+					}
+					if(results['results']['bindings'][idx]['distributorName'] != null) {
+						object['distributorName'] = results['results']['bindings'][idx]['distributorName']['value'];
+					}
+					if(results['results']['bindings'][idx]['distributorHomePage'] != null) {
+						object['distributorHomePage'] = results['results']['bindings'][idx]['distributorHomePage']['value'];
+					}
 
-				distribs.push(object)
+					distribs.push(object)
+			}
 		}
+
 		callback(distribs);
 	});
 
@@ -128,30 +135,32 @@ _getDistributionInformation = function(id, endpoint, callback){
 _getUseCaseInformation = function(id, endpoint, callback){
 
 	var usecase = fs.readFileSync('./queries/getUsecasesForDataset.sparql', 'utf8'); //reads the query into a string
-	usecase = usecase.replace("%%id%%", id)
+	usecase = usecase.replace("%%id%%", GLOBAL.payLevelDomain+"/dataset/"+id)
 
 	cases = [];
 	_queryEndpoint(endpoint, usecase, function(error,results){
 		theResultsUC = results['results']['bindings'];
 
-		for(idx in theResultsUC){
-				object = {};
+		if (results['results']['bindings'][0]['title'] != null){
+			for(idx in theResultsUC){
+					object = {};
 
-				object['caseTitle'] = results['results']['bindings'][idx]['title']['value'];
-				object['useCase'] = results['results']['bindings'][idx]['useCase']['value']; //resource uri (not website)
-				object['useCaseURL'] = results['results']['bindings'][idx]['useCaseURL']['value'];
-				if(results['results']['bindings'][idx]['motivations'] != null) {
-					object['motivation'] = results['results']['bindings'][idx]['motivations']['value'];
-				}
-				object['useCaseDesc'] = results['results']['bindings'][idx]['useCaseDesc']['value'];
-				if(results['results']['bindings'][idx]['generatorName'] != null) {
-					object['generatorName'] = results['results']['bindings'][idx]['generatorName']['value'];
-				}
-				object['generatorHomePage'] = results['results']['bindings'][idx]['generatorHomePage']['value'];
-				object['distributionUsed'] = results['results']['bindings'][idx]['distribution']['value'];
+					object['caseTitle'] = results['results']['bindings'][idx]['title']['value'];
+					object['useCase'] = results['results']['bindings'][idx]['useCase']['value']; //resource uri (not website)
+					object['useCaseURL'] = results['results']['bindings'][idx]['useCaseURL']['value'];
+					if(results['results']['bindings'][idx]['motivations'] != null) {
+						object['motivation'] = results['results']['bindings'][idx]['motivations']['value'];
+					}
+					object['useCaseDesc'] = results['results']['bindings'][idx]['useCaseDesc']['value'];
+					if(results['results']['bindings'][idx]['generatorName'] != null) {
+						object['generatorName'] = results['results']['bindings'][idx]['generatorName']['value'];
+					}
+					object['generatorHomePage'] = results['results']['bindings'][idx]['generatorHomePage']['value'];
+					object['distributionUsed'] = results['results']['bindings'][idx]['distribution']['value'];
 
 
-				cases.push(object)
+					cases.push(object)
+			}
 		}
 		callback(cases);
 	});

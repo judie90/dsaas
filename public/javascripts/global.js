@@ -293,8 +293,8 @@ function addDataset(event){
 		addDataset['landingPage'] = $('#formAddDataset input#txtDatasetURL').val();
 		addDataset['theme'] = clean($('#formAddDataset input#txtTheme').val());
 		addDataset['keyword'] = clean($('#formAddDataset input#txtKeyword').val());
-		addDataset['dataset'] = $('#formAddDataset input#txtPubName').val();
-		addDataset['datasetUrl'] = $('#formAddDataset input#txtPubURL').val();
+		addDataset['publisher'] = $('#formAddDataset input#txtPubName').val();
+		addDataset['publisherUrl'] = $('#formAddDataset input#txtPubURL').val();
 		addDataset['language'] = $('#formAddDataset #ddLanguage').val();
 		addDataset['license'] = $('#formAddDataset #ddLicense').val();
 		addDataset['natureOfContent'] = [];
@@ -438,7 +438,7 @@ function recommend(event){
 	save = validateDemand(event);
 
 	if(save){
-   	var addDemand = {};		
+   	var addDemand = {};
 		addDemand['theme'] = clean($('#formAddDemand input#txtTheme').val());
 		addDemand['keyword'] = clean($('#formAddDemand input#txtKeyword').val());
 		addDemand['language'] = $('#formAddDemand #ddLanguage').val();
@@ -472,7 +472,7 @@ function recommend(event){
 		addDemand['description'] = $('#formAddDemand textarea#txtDescription').val();
 		addDemand['contact'] = $('#formAddDemand input#txtContact').val();
 		addDemand['submitterUrl'] = $('#formAddDemand input#txtContactURL').val();
-		
+
 		recommendations = match(addDemand);
 
 		//console.log(addDemand);
@@ -481,14 +481,14 @@ function recommend(event){
 		var url = '/recommend';
 
 		//persist(type, url, addDemand);
-		
-		
+
+
 	//match theme
 	//match keywords
 	//match language
 	//media type
-	
-	
+
+
 	}//end save
 }
 */
@@ -535,11 +535,11 @@ function addNewDemand(event){
 			addDemand['submitterUrl'] = $('#formAddDemand input#txtContactURL').val();
 
 			console.log(addDemand);
-			
+
 		  $.ajax({
 		      type: 'POST',
 		      data: JSON.stringify(addDemand),
-		      url: '/recommend',
+		      url: '/demand/add',
 		      dataType: 'JSON',
 			contentType: "application/json",
 			traditional: true
@@ -555,8 +555,8 @@ function addNewDemand(event){
 		          alert('Error: ' + response.msg);
 		      }
 		  });
-			
-			
+
+
 
 			//persist(type, url, addDemand);
 

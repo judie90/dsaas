@@ -49,8 +49,8 @@ exports.ContentNegotiation = function() {
 
   	graph = new rdflib.IndexedFormula();
   	this.getData(resource,endpoint, function(triples){
-  		srcData = rdflib.parse(triples,graph,'http://www.example.org/',source);
-  		targetData = rdflib.serialize(srcData, graph, 'http://www.example.org/', target);
+  		srcData = rdflib.parse(triples,graph,GLOBAL.payLevelDomain,source);
+  		targetData = rdflib.serialize(srcData, graph, GLOBAL.payLevelDomain, target);
   		callback(targetData);
   	});
   };

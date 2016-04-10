@@ -49,7 +49,7 @@ router.get('/:uri', function(req, res, next){
 
 _getDemandInformation = function(id, endpoint, callback){
 	var selectAll = fs.readFileSync('./queries/getDemandDetails.sparql', 'utf8'); //reads the query into a string
-	selectAll = selectAll.replace(/%%id%%/g, id);
+	selectAll = selectAll.replace(/%%id%%/g, GLOBAL.payLevelDomain+"/demand/"+id);
 
 	demand = {}
 	_queryEndpoint(endpoint, selectAll, function(error,results){
@@ -59,6 +59,8 @@ _getDemandInformation = function(id, endpoint, callback){
 		demand['language'] = results['results']['bindings'][0]['language']['value'];
 		if(results['results']['bindings'][0]['license'] != null) {
 			demand['license'] = results['results']['bindings'][0]['license']['value'];
+			demand['licenseLabel'] = results['results']['bindings'][0]['licenseLabel']['value'];
+			demand['licenseText'] = results['results']['bindings'][0]['licenseText']['value'];
 		}
 
 		if(results['results']['bindings'][0]['spatial'] != null) {
@@ -93,7 +95,7 @@ _getDemandInformation = function(id, endpoint, callback){
 
 _getSecondedByInformation = function(id, endpoint, callback){
 	var selectAll = fs.readFileSync('./queries/getSecondedBy.sparql', 'utf8'); //reads the query into a string
-	selectAll = selectAll.replace("%%id%%", id)
+	selectAll = selectAll.replace("%%id%%", GLOBAL.payLevelDomain+"/demand/"+id)
 
 	secondedBy = []
 	_queryEndpoint(endpoint, selectAll, function(error,results){

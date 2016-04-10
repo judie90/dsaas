@@ -4,30 +4,38 @@ SELECT ?language ?license ?spatial ?tstart ?tend
 ((group_concat(distinct ?kw ; separator = ",")) as ?keywords)
 ((group_concat(distinct ?motiv ; separator = ",")) as ?motivations)
 ((group_concat(distinct ?content ; separator = ",")) as ?natureOfContent) ?name ?homepage
+?licenseLabel ?licenseText
 WHERE {
-	<%%id%%> a <http://example.org/dso#DataRequest> ;
-	<http://example.org/dso#language> ?language ;
-	<http://example.org/dso#mediaType> ?format ;
-	<http://example.org/dso#description> ?desc ;
-	<http://example.org/dso#theme> [
+	<%%id%%> a <https://www.w3id.org/dso#DataRequest> ;
+	<https://www.w3id.org/dso#language> ?language ;
+	<https://www.w3id.org/dso#mediaType> ?format ;
+	<https://www.w3id.org/dso#description> ?desc ;
+	<https://www.w3id.org/dso#theme> [
 		a <http://www.w3.org/2008/05/skos#Concept> ;
 		<http://www.w3.org/2008/05/skos#prefLabel> ?themeLabel ] ;
-	<http://example.org/dso#keyword> ?kw ;
-	<http://example.org/dso#submitter> [
+	<https://www.w3id.org/dso#keyword> ?kw ;
+	<https://www.w3id.org/dso#submitter> [
 		<http://xmlns.com/foaf/0.1/name> ?name ;
 		<http://xmlns.com/foaf/0.1/homepage> ?homepage 	 ] .
 
-		OPTIONAL{ <%%id%%> <http://example.org/dso#license> ?license } .
-		OPTIONAL{ <%%id%%> <http://example.org/dso#requestContent> ?cnt} .
-		OPTIONAL{ <%%id%%> <http://example.org/dso#spatialRange> ?spatial } .
-		OPTIONAL{ <%%id%%> <http://example.org/dso#temporalRange> [
+		OPTIONAL{ <%%id%%> <https://www.w3id.org/dso#license> ?license
+
+		GRAPH <http://purl.org/NET/rdflicense/> {
+			?license <http://www.w3.org/2000/01/rdf-schema#label> ?licenseLabel .
+			?license <http://creativecommons.org/ns#legalcode> ?licenseText .
+		}
+
+		} .
+		OPTIONAL{ <%%id%%> <https://www.w3id.org/dso#requestContent> ?cnt} .
+		OPTIONAL{ <%%id%%> <https://www.w3id.org/dso#spatialRange> ?spatial } .
+		OPTIONAL{ <%%id%%> <https://www.w3id.org/dso#temporalRange> [
         a <http://purl.org/dc/terms/PeriodOfTime> ;
         <http://schema.org/startDate> ?tstart ;
         <http://schema.org/endDate> ?tend
     ] } .
-		OPTIONAL{ <%%id%%> <http://example.org/dso#motivation> ?motiv } .
+		OPTIONAL{ <%%id%%> <https://www.w3id.org/dso#motivation> ?motiv } .
 
-			GRAPH <http://example.org/dso#> {
+			GRAPH <https://www.w3id.org/dso#> {
 				?cnt a <http://www.w3.org/2008/05/skos#Concept> .
 				?cnt <http://www.w3.org/2008/05/skos#prefLabel> ?content .
 			}
@@ -35,3 +43,4 @@ WHERE {
 ?language ?license ?spatial ?tstart
 ?tend ?format ?desc ?themes ?keywords
 ?motivations ?natureOfContent ?name ?homepage
+?licenseLabel ?licenseText 

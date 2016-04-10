@@ -3,8 +3,8 @@ SELECT ?dataset ?title ?landingPage
 ((group_concat(distinct ?kw ; separator = ",")) as ?keywords)
 ((group_concat(distinct ?content ; separator = ",")) as ?natureOfContent)
 ?publisher ?publisherURL ?publisherName
-?language ?license ?dateIssued
-?dateModified ?spatial
+?language ?license ?dateIssued ?licenseLabel
+?licenseText ?dateModified ?spatial
 ?tStartDate ?tEndDate ?datasetDescription  WHERE
 { <%%id%%> a <http://www.w3.org/ns/dcat#Dataset> ;
 	<http://purl.org/dc/terms/title> ?title ;
@@ -22,7 +22,7 @@ SELECT ?dataset ?title ?landingPage
 	?publisher <http://xmlns.com/foaf/0.1/name> ?publisherName ;
 		<http://xmlns.com/foaf/0.1/homepage> ?publisherURL .
 
-	OPTIONAL{ <%%id%%>	<http://example.org/dso#content> ?cnt } .
+	OPTIONAL{ <%%id%%>	<https://www.w3id.org/dso#content> ?cnt } .
 	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/issued> ?dateIssued } .
 	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/modified> ?dateModified } .
 	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/spatial> ?spatial } .
@@ -31,12 +31,18 @@ SELECT ?dataset ?title ?landingPage
 		<http://schema.org/startDate> ?tStartDate ;
 		<http://schema.org/endDate> ?tEndDate    ] } .
 
-	GRAPH <http://example.org/dso#> {
+	GRAPH <https://www.w3id.org/dso#> {
 		?cnt a <http://www.w3.org/2008/05/skos#Concept> .
 		?cnt <http://www.w3.org/2008/05/skos#prefLabel> ?content .
+	}
+
+	GRAPH <http://purl.org/NET/rdflicense/> {
+		?license <http://www.w3.org/2000/01/rdf-schema#label> ?licenseLabel .
+		?license <http://creativecommons.org/ns#legalcode> ?licenseText .
 	}
 }
 GROUP BY
 ?dataset ?title ?landingPage ?publisher ?publisherURL
 ?publisherName ?language ?license ?dateIssued ?dateModified
-?tStartDate ?tEndDate ?spatial ?datasetDescription
+?tStartDate ?tEndDate ?spatial ?datasetDescription ?licenseLabel
+?licenseText

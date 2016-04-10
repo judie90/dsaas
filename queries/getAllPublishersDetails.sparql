@@ -10,10 +10,7 @@ SELECT ?dataset ?title ?landingPage
 ?accessMethod ?license
 WHERE {
 	?dataset a <http://www.w3.org/ns/dcat#Dataset> ;
-	<http://www.w3.org/ns/dcat#distribution>  [
-		a		<http://www.w3.org/ns/dcat#Distribution> ;
-		<http://www.w3.org/ns/dcat#mediaType> ?accessMethod ;
-	] ;
+
 	<http://purl.org/dc/terms/title> ?title ;
 	<http://www.w3.org/ns/dcat#landingPage> ?landingPage ;
 	<http://www.w3.org/ns/dcat#theme> [
@@ -27,7 +24,7 @@ WHERE {
 	?publisher <http://xmlns.com/foaf/0.1/name> ?publisherName ;
 		<http://xmlns.com/foaf/0.1/homepage> ?publisherURL .
 
-	OPTIONAL{ ?dataset 	<http://example.org/dso#content> ?cnt } .
+	OPTIONAL{ ?dataset 	<https://www.w3id.org/dso#content> ?cnt } .
 	OPTIONAL{ ?dataset 	<http://purl.org/dc/terms/issued> ?dateIssued } .
 	OPTIONAL{ ?dataset 	<http://purl.org/dc/terms/modified> ?dateModified } .
 	OPTIONAL{ ?dataset 	<http://purl.org/dc/terms/spatial> ?spatial } .
@@ -36,7 +33,16 @@ WHERE {
 		<http://schema.org/startDate> ?tStartDate ;
 		<http://schema.org/endDate> ?tEndDate    ] } .
 
-	GRAPH <http://example.org/dso#> {
+	OPTIONAL{
+
+			?dataset <http://www.w3.org/ns/dcat#distribution>  [
+				a		<http://www.w3.org/ns/dcat#Distribution> ;
+				<http://www.w3.org/ns/dcat#mediaType> ?accessMethod ;
+			] ;
+
+		}
+
+	GRAPH <https://www.w3id.org/dso#> {
 		?cnt a <http://www.w3.org/2008/05/skos#Concept> .
 		?cnt <http://www.w3.org/2008/05/skos#prefLabel> ?content .
 	}

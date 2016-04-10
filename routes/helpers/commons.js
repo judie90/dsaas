@@ -2,7 +2,7 @@ var fs = require('fs');
 
 
 exports.namespaces = function(){
-  this.DSO_NS = "http://example.org/dso#";
+  this.DSO_NS = "https://www.w3id.org/dso#";
   this.DCT_NS = "http://purl.org/dc/terms/";
   this.XSD_NS = "http://www.w3.org/2001/XMLSchema#";
   this.RDFS_NS = "http://www.w3.org/2000/01/rdf-schema#";
@@ -26,8 +26,9 @@ exports.commons = function(){
     if (languageURI == null){
       return "Unknown Language"
     }
-    
+
   	language = languageURI.replace("http://id.loc.gov/vocabulary/iso639-1/","");
+
   	var cnts = JSON.parse(fs.readFileSync('./public/languages.json', 'utf8'));
   	languagePrefLabel = "Unknown Language"
   	for (obj in cnts){
@@ -43,7 +44,7 @@ exports.commons = function(){
     if (spatialURI == null){
       return "Unknown Country"
     }
-		countryCode = spatialURI.replace("http://www.geonames.org/","");
+		countryCode = spatialURI.replace("http://sws.geonames.org/","");
 		var cnts = JSON.parse(fs.readFileSync('./public/countries.json', 'utf8'));
 		spatialPrefLabel = "Unknown Country"
 		for (obj in cnts){

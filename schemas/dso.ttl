@@ -1,4 +1,4 @@
-@prefix dso: 	<http://example.org/dso#> .
+@prefix dso: 	<https://www.w3id.org/dso#> .
 @prefix dct:     	<http://purl.org/dc/terms/> .
 @prefix xsd:     	<http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:    	<http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,41 +7,92 @@
 @prefix dbpedia-owl: 	<http://dbpedia.org/ontology/> .
 @prefix rdf: 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dcat:	<http://www.w3.org/ns/dcat> .
-@prefix skos: <http://www.w3.org/2008/05/skos#> .
+@prefix skos: <http://www.w3.org/2008/05/skos#> . 
 @prefix oa:   <http://www.w3.org/ns/oa#>  .
 @prefix duv:  <http://www.w3.org/ns/duv#> .
 
-dso:
+dso:	
 	a 	owl:Ontology ;
 	rdfs:label	"Demand and Supply Ontology (dso)"^^xsd:string ;
 	rdfs:comment 	"The Demand and Supply Ontology (so) is a lightweight, extensible core vocabulary for representing existing datasets, their uses, and demands for new datasets." ;
-	dct:creator	 	[foaf:name "Judie Attard"], [ foaf:name "Fabrizio Orlandi"] ;
+	dct:creator	 	[foaf:name "Judie Attard"], [ foaf:name "Fabrizio Orlandi"] ; 
 	dct:modified 	"2016-03-04"^^xsd:date .
 
+#Dataset class
+dso:content
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "content"^^xsd:string ;
+	rdfs:comment "This property indicates the nature of the data content in a dataset." ;
+	rdfs:domain	dcat:Dataset ;
+	rdfs:range 	xsd:string .
 
-
+#Data request class
 dso:DataRequest
 	a rdfs:Class, owl:Class ;
 	rdfs:comment "A DataRequest class represents all the information about a newly requested dataset." ;
 	rdfs:label "DataRequest"^^xsd:string .
+	
+dso:secondedBy
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "secondedBy"^^xsd:string ;
+	rdfs:comment "This property indicates any Agent who support an existing Data Request." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	foaf:Agent .
 
-dso:Consumer
-	a rdfs:Class, owl:Class;
-		rdfs:subClassof foaf:Agent ;
-	rdfs:comment "A Consumer is an entity (machine/human) who re-used a dataset distribution in a specific usecase." ;
-	rdfs:label "Consumer"^^xsd:string .
-
-dso:Distributor
-	a rdfs:Class, owl:Class ;
-		rdfs:subClassOf foaf:Agent ;
-	rdfs:comment "A Distributor is an entity (machine/human) who is responsible for the creation of a dataset distribution." ;
-	rdfs:label "Distributor"^^xsd:string .
-
-dso:UseCase
-	a rdfs:Class, owl:Class ;
-	rdfs:comment "A UseCase is an example of re-use of a Distribution" ;
-	rdfs:label "UseCase"^^xsd:string .
-
+dso:motivation
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "motivation"^^xsd:string ;
+	rdfs:comment "This property indicates the motivation for a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	xsd:string .
+		
+dso:keyword
+	a rdf:Property, owl:ObjectProperty ;
+		rdfs:subPropertyOf dcat:keyword ;
+	rdfs:label "keyword"^^xsd:string ;
+	rdfs:comment "This property indicates keywords that are relevant to describe the data required in a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	xsd:string .
+	
+dso:description
+	a rdf:Property, owl:ObjectProperty ;
+		rdfs:subPropertyOf dct:description ;
+	rdfs:label "description"^^xsd:string ;
+	rdfs:comment "This property provides a description of the data required in a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	xsd:string .
+					
+dso:license
+	a rdf:Property, owl:ObjectProperty ;
+		rdfs:subPropertyOf dct:license ;
+	rdfs:label "license"^^xsd:string ;
+	rdfs:comment "This property indicates the license of the data required in a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	dct:LicenseDocument .	
+	
+dso:temporalRange
+	a rdf:Property, owl:ObjectProperty ;
+		rdfs:subPropertyOf dct:temporal ;
+	rdfs:label "temporalRange"^^xsd:string ;
+	rdfs:comment "This property indicates the temporal range of the data required in a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	dct:PeriodOfTime .
+		
+dso:spatialRange
+	a rdf:Property, owl:ObjectProperty ;
+		rdfs:subPropertyOf dct:spatial ;
+	rdfs:label "spatialRange"^^xsd:string ;
+	rdfs:comment "This property indicates the spatial range of the data required in a request for a new dataset from an Agent." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	dct:Location .	
+	
+dso:requestContent
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "requestContent"^^xsd:string ;
+	rdfs:comment "This property indicates the nature of the data content in a dataset request." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range 	skos:Concept .
+	
 dso:NatureOfContent
 	a rdfs:Class, owl:Class ;
 		rdfs:subClassOf skos:Concept, [
@@ -52,31 +103,10 @@ dso:NatureOfContent
 			rdf:type owl:Restriction ;
 	  	owl:onProperty dso:requestContent ;
 	   	owl:allValuesFrom dso:ContentScheme
-			];
+			]; 
 	rdfs:comment "This Class indicates the content within a Dataset (or a request for a Dataset), e.g. images, text" ;
 	rdfs:label "NatureOfContent"^^xsd:string .
-
-dso:submitter
-	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "request"^^xsd:string ;
-	rdfs:comment "This property indicates the Agent who/which requested a new dataset." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range foaf:Agent .
-
-dso:motivation
-	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "motivation"^^xsd:string ;
-	rdfs:comment "This property indicates the motivation for a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	xsd:string .
-
-dso:requestContent
-	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "requestContent"^^xsd:string ;
-	rdfs:comment "This property indicates the nature of the data content in a dataset request." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	skos:Concept .
-
+			
 dso:language
 	a rdf:Property, owl:ObjectProperty ;
 		rdfs:subPropertyOf dct:language ;
@@ -84,82 +114,56 @@ dso:language
 	rdfs:comment "This property indicates the language of the data required in a request for a new dataset from an Agent." ;
 	rdfs:domain	dso:DataRequest ;
 	rdfs:range 	dct:LinguisticSystem .
-
-dso:temporalRange
-	a rdf:Property, owl:ObjectProperty ;
-		rdfs:subPropertyOf dct:temporal ;
-	rdfs:label "temporalRange"^^xsd:string ;
-	rdfs:comment "This property indicates the temporal range of the data required in a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	dct:PeriodOfTime .
-
-dso:spatialRange
-	a rdf:Property, owl:ObjectProperty ;
-		rdfs:subPropertyOf dct:spatial ;
-	rdfs:label "spatialRange"^^xsd:string ;
-	rdfs:comment "This property indicates the spatial range of the data required in a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	dct:Location .
-
-dso:license
-	a rdf:Property, owl:ObjectProperty ;
-		rdfs:subPropertyOf dct:license ;
-	rdfs:label "license"^^xsd:string ;
-	rdfs:comment "This property indicates the license of the data required in a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	dct:LicenseDocument .
-
-dso:description
-	a rdf:Property, owl:ObjectProperty ;
-		rdfs:subPropertyOf dct:description ;
-	rdfs:label "description"^^xsd:string ;
-	rdfs:comment "This property provides a description of the data required in a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	xsd:string .
-
-dso:keyword
-	a rdf:Property, owl:ObjectProperty ;
-		rdfs:subPropertyOf dcat:keyword ;
-	rdfs:label "keyword"^^xsd:string ;
-	rdfs:comment "This property indicates keywords that are relevant to describe the data required in a request for a new dataset from an Agent." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	xsd:string .
-
+	
 dso:theme
 	a rdf:Property, owl:ObjectProperty ;
 		rdfs:subPropertyOf dcat:theme ;
 	rdfs:label "theme"^^xsd:string ;
 	rdfs:comment "This property indicates the themes that are relevant to describe the data required in a request for a new dataset from an Agent." ;
 	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	skos:Concept .
-
+	rdfs:range 	skos:Concept .	
+	
 dso:mediaType
 	a rdf:Property, owl:ObjectProperty ;
 		rdfs:subPropertyOf dcat:mediaType ;
 	rdfs:label "mediaType"^^xsd:string ;
 	rdfs:comment "This property indicates the format of the requested Dataset." ;
 	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	dct:MediaTypeorExtent .
-
-dso:consumer
+	rdfs:range 	dct:MediaTypeorExtent .	
+	
+dso:submitter
 	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "consumer"^^xsd:string ;
-	rdfs:comment "This property indicates the Consumer of a dataset distribution." ;
-	rdfs:domain	dcat:Distribution ;
-	rdfs:range 	dso:Consumer .
+	rdfs:label "request"^^xsd:string ;
+	rdfs:comment "This property indicates the Agent who/which requested a new dataset." ;
+	rdfs:domain	dso:DataRequest ;
+	rdfs:range foaf:Agent .	
 
-dso:distributor
-	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "distributor"^^xsd:string ;
-	rdfs:comment "This property indicates the Distributor of a dataset distribution." ;
-	rdfs:domain	dcat:Distribution ;
-	rdfs:range 	dso:Author .
+#use case class
+dso:UseCase
+	a rdfs:Class, owl:Class ;
+	rdfs:comment "A UseCase is an example of re-use of a Distribution" ;
+	rdfs:label "UseCase"^^xsd:string .
 
-dso:content
+dso:usesDataset
 	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "content"^^xsd:string ;
-	rdfs:comment "This property indicates the nature of the data content in a dataset." ;
-	rdfs:domain	dcat:Dataset ;
+	rdfs:label "usesDataset"^^xsd:string ;
+	rdfs:comment "This property indicates the Dataset used in a Use case." ;
+	rdfs:domain	dso:UseCase ;
+	rdfs:range dcat:Dataset .
+	
+dso:usesDistribution
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "usesDistribution"^^xsd:string ;
+	rdfs:comment "This property indicates the Distribution of a Dataset used in a Use case." ;
+	rdfs:domain	dso:UseCase ;
+	rdfs:range dcat:Distribution .
+
+
+dso:useCaseMotivation
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "useCaseMotivation"^^xsd:string ;
+	rdfs:comment "This property indicates the motivation for a UseCase." ;
+	rdfs:domain	dso:DataRequest ;
 	rdfs:range 	xsd:string .
 
 dso:useCaseDescription
@@ -169,21 +173,14 @@ dso:useCaseDescription
 	rdfs:comment "This property provides a description of a UseCase." ;
 	rdfs:domain	dso:UseCase ;
 	rdfs:range 	xsd:string .
-
-dso:useCaseMotivation
-	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "useCaseMotivation"^^xsd:string ;
-	rdfs:comment "This property indicates the motivation for a UseCase." ;
-	rdfs:domain	dso:DataRequest ;
-	rdfs:range 	xsd:string .
-
+	
 dso:useCaseURL
 	a rdf:Property, owl:ObjectProperty ;
 	rdfs:label "useCaseURL"^^xsd:string ;
 	rdfs:comment "This property indicates the URL of a UseCase." ;
 	rdfs:domain	dso:DataRequest ;
 	rdfs:range 	xsd:string .
-
+	
 dso:generator
 	a rdf:Property, owl:ObjectProperty ;
 	rdfs:label "generator"^^xsd:string ;
@@ -191,45 +188,71 @@ dso:generator
 	rdfs:domain	dso:UseCase ;
 	rdfs:range dso:Consumer .
 
-dso:usesDataset
+#Distribution class
+	
+dso:consumer
 	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "usesDataset"^^xsd:string ;
-	rdfs:comment "This property indicates the Dataset used in a Use case." ;
-	rdfs:domain	dso:UseCase ;
-	rdfs:range dcat:Dataset .
+	rdfs:label "consumer"^^xsd:string ;
+	rdfs:comment "This property indicates the Consumer of a dataset distribution." ;
+	rdfs:domain	dcat:Distribution ;
+	rdfs:range 	dso:Consumer .
 
-dso:publisherURL
+dso:Consumer
+	a rdfs:Class, owl:Class;
+		rdfs:subClassof foaf:Agent ;
+	rdfs:comment "A Consumer is an entity (machine/human) who re-used a dataset distribution in a specific usecase." ;
+	rdfs:label "Consumer"^^xsd:string .
+
+dso:distributor
 	a rdf:Property, owl:ObjectProperty ;
-	rdfs:label "publisherURL"^^xsd:string ;
-	rdfs:comment "This property indicates the URL of a Publisher." ;
-	rdfs:domain	dct:Publisher ;
-	rdfs:range foaf:Document .
+	rdfs:label "distributor"^^xsd:string ;
+	rdfs:comment "This property indicates the Distributor of a dataset distribution." ;
+	rdfs:domain	dcat:Distribution ;
+	rdfs:range 	dso:Author .
+	
+dso:Distributor
+	a rdfs:Class, owl:Class ;
+		rdfs:subClassOf foaf:Agent ;
+	rdfs:comment "A Distributor is an entity (machine/human) who is responsible for the creation of a dataset distribution." ;
+	rdfs:label "Distributor"^^xsd:string .
 
+	
 dso:ContentScheme
 	a skos:ConceptScheme ;
 	dct:title "Reference list of nature of data content"@en .
 
 dso:Images
 	a skos:Concept ;
-	skos:prefLabel "images"@en ;
-	skos:inScheme dso:NatureOfDataScheme .
-
+	skos:prefLabel "Images"@en ;
+	skos:inScheme dso:ContentScheme .
+	
 dso:Text
 	a skos:Concept ;
-	skos:prefLabel "text"@en ;
-	skos:inScheme dso:NatureOfDataScheme .
+	skos:prefLabel "Text"@en ;
+	skos:inScheme dso:ContentScheme .
 
 dso:Numeric
 	a skos:Concept ;
-	skos:prefLabel "numeric"@en ;
-	skos:inScheme dso:NatureOfDataScheme .
+	skos:prefLabel "Numeric"@en ;
+	skos:inScheme dso:ContentScheme .
 
-dso:Document
+dso:Documents
 	a skos:Concept ;
-	skos:prefLabel "document"@en ;
-	skos:inScheme dso:NatureOfDataScheme .
+	skos:prefLabel "Documents"@en ;
+	skos:inScheme dso:ContentScheme .
+	
+dso:Applications
+	a skos:Concept ;
+	skos:prefLabel "Applications"@en ;
+	skos:inScheme dso:ContentScheme .
 
-dso:Application
-	a skos:Concept ;
-	skos:prefLabel "application"@en ;
-	skos:inScheme dso:NatureOfDataScheme .
+
+
+
+
+
+
+
+
+
+

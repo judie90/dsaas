@@ -10,14 +10,14 @@ var negotiate = require('express-negotiate');
 var endpoint = 'http://localhost:3030/dsaas'
 
 // Pay-Level Domain
-GLOBAL.payLevelDomain = "urn:"//"http://purl.org/dsaas/";
+GLOBAL.payLevelDomain = "urn:";//"http://butterbur22.iai.uni-bonn.de/dsaas";
 
 
 var routes = require('./routes/index');
 var dataset = require('./routes/dataset');
 var demand = require('./routes/demand');
+//var agent = require('./routes/agent');
 //var recommend = require('./routes/recommend');
-
 var display_dataset = require('./routes/display_dataset');
 var display_demand = require('./routes/display_demand');
 
@@ -47,6 +47,7 @@ app.use('/dataset', dataset);
 app.use('/demand', demand);
 app.use('/page/dataset', display_dataset);
 app.use('/page/demand', display_demand);
+//app.use('/agent', agent);
 //app.use('/recommend', recommend);
 
 
@@ -80,41 +81,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-//mailer
-
-var nodemailer = require('nodemailer');
-
-app.post('/contactres', function (req, res) {
-  var mailOpts;
-
-	var transporter = nodemailer.createTransport('SMTP', {
-      service: 'Gmail',
-      auth: {
-          user: "jerdebattista@gmail.com",
-          pass: "PASSWORD"
-      }
-  });
-
-  //Mail options
-  mailOpts = {
-      from: req.body.txtName + " &lt;" + req.body.txtEmail + "&gt;", //grab form data from the request body object
-      to: "judieattard@gmail.com",
-      subject: "DSAAS contact form",
-      text: req.body.Message
-  };
-  transporter.sendMail(mailOpts, function (error, response) {
-      //Email not sent
-      if (error) {
-          res.render("contactres", {msg: "Error occured, message not sent.", err: true, page: "contact" })
-      }
-      //Yay!! Email sent
-      else {
-          res.render("contactres", {msg: 'Message sent! Thank you.', err: false, page: "contact" })
-      }
-  });
-});
-
 
 
 

@@ -59,7 +59,10 @@ block content
               i
                 strong
                  | License:&nbsp;
-              a(href='#{license}')= license
+              a(href='#{license}')= licenseLabel
+              | &nbsp;(
+              a(data-toggle='modal', data-target='#licenseModal') View License Text
+              | )
               br
               br
           if (dateIssued != null)
@@ -209,3 +212,13 @@ block content
                      | #{item.distributorName}
                    br
                    br
+    #licenseModal.modal.fade(role='dialog')
+       .modal-dialog
+         .modal-content
+           .modal-header
+             button.close(type='button', data-dismiss='modal') &times;
+             h4.modal-title #{licenseLabel}
+           .modal-body
+             | #{licenseText}
+           .modal-footer
+             button.btn.btn-default(type='button', data-dismiss='modal') Close

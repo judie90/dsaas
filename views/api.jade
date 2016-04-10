@@ -3,13 +3,14 @@ extends layout
 block content
   .container
     h2 Content Negotiation
-    | By default, the dsaas will return a JSON object. In the future, the web service will support the following content-types:
+    | By default, the dsaas will return a JSON object. Most API requests support (marked with &deg;) the following content-types:
     ul
+      li application/rdf+xml
+      li text/turtle
+      li application/trig
+      li application/n-triples
+      li application/n-quads
       li text/plain
-      li text/html
-      li application/xml
-      li
-        | application/rdf+xml (We plan to have the platform running on semantic technologies)
     h2 Operations
     table.table.table-striped
       thead
@@ -18,58 +19,104 @@ block content
           th Description
       tbody#tbody
         tr
-          td /publishers/all
-          td Retreives all information on the publishers
+          td /dataset/all
+          td Retreives all information on the datasets available in the Knowledge Base.
         tr
-          td /publishers/add
+          td /dataset/add/dataset
           td
-            | Adds a publisher to the web application. The passed json content should have the following stucture (values are added as an example):
+            | Adds a dataset to the web application. The passed json content should have the following structure (values are added as an example):
+            pre.
+              {
+                title: 'Music Brainz ',
+                landingPage: 'http://musicbrainz.org',
+                theme: [ 'Music' ],
+                keyword: [ 'Records' ],
+                publisher: 'MusicBrainz',
+                publisherUrl: 'https://musicbrainz.org/',
+                language: 'EN', // An ISO 639-1 code
+                license: 'http://purl.org/NET/rdflicense/cc-zero1.0',
+                natureOfContent: [ 'Text' ],
+                dateIssued: '2002-06-26',
+                dateModified: '2016-04-10',
+                spatial: '6295630', // Spatial Code from http://www.geonames.org
+                temporalStart: '2002-06-26',
+                temporalEnd: '2016-04-10',
+                description: 'MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.
+                \n\nMusicBrainz aims to be:\n\n1. The ultimate source of music information by allowing anyone to contribute and releasing
+                the data under open licenses.\n2. The universal lingua franca for music by providing a reliable and unambiguous form of music
+                identification, enabling both people and machines to have meaningful conversations about music.\n',
+                distributions: [], // Empty Array, else add distribution(s) as in /dataset/add/distribution
+                useCases: [] // Empty Array, else add use case(s) as in dataset/add/usecase
+              }
+        tr
+         td /dataset/add/distribution
+         td
+           | Adds a distribution to the web application. The passed json content should have the following structure (values are added as an example):
+           pre.
+             {
+               distribTitle: 'XML Web Service',
+               datasetID: 'http://butterbur20.iai.uni-bonn.de/dataset/6340616a-f550-84a7-b815-3e1ec750e2f2', // Dataset URI
+               mediaType: 'application/xml',
+               accessURL: 'http://musicbrainz.org/ws/2/',
+               downloadURL: 'http://musicbrainz.org/doc/MusicBrainz_Database',
+               dateModifiedDistrib: '2016-04-10',
+               distributor: 'Music Brainz',
+               distributorURL: 'http://musicbrainz.org'
+             }
+        tr
+          td /dataset/add/usecase
+          td
+            | Adds a use case to the web application. The passed json content should have the following structure (values are added as an example):
             pre.
              {
-               'publisher' : 'MusicBrainz',
-               'uri' : 'https://musicbrainz.org/',
-               'domain' : ['Music'],
-               'natureOfContent' : ['Records'],
-               'apiFormat' : ['RESTful API'],
-               'licence' : 'Open', 
-               'knownConsumers' : [{
-                  'consumer' :'BBC', 
-                  'consumersAim' : ['News Enhancement'], 
-                  'consumersDescription' : 'Some Description'
-                }]
-             }                                                        
+               datasetID: 'http://butterbur20.iai.uni-bonn.de/dataset/6340616a-f550-84a7-b815-3e1ec750e2f2',
+               caseTitle: 'MusicBrainz Picard',
+               generator: 'MusicBrainz',
+               generatorUrl: 'http://musicbrainz.org',
+               useCaseMotiv: [ 'Music Tagging' ],
+               useCaseUrl: 'http://picard.musicbrainz.org',
+               description: 'MusicBrainz Picard is a cross platform (Linux, Mac OS X, Windows) album oriented MusicBrainz
+               tagger with support for acoustic fingerprinting of MP3, WAV, Ogg Vorbis, FLAC, MPC, MP4 and WMA formats.',
+               distribution: 'http://butterbur20.iai.uni-bonn.de/distribution/2dad19dc-a790-bf40-da4c-2e46f9deb5e3' // Distribution URI
+             }
         tr
-          td /publishers/exhibit/all
+          td /dataset/exhibit/all
           td
-            | Retreives all information on the publishers that can be used in an 
+            | Retreives all information on the publishers that can be used in an&nbsp;
             a(href='http://www.simile-widgets.org/exhibit/', target='_blank') Exhibit
             |  interface
         tr
-          td /publisher/:field/:value
+          td /dataset/:id &deg;
           td
-            | Searches a particular publisher according to the field (e.g. publisher) and its value (e.g. MusicBrainz)
+            | Returns the dataset instance with the given ID responding to a particular content-type
         tr
           td /demand/all
-          td Retreives all information regarding the demand of data
+          td Retreives all information on the Demands available in the Knowledge Base.
         tr
-          td /demand/add
+          td /demand/add/
           td
             | Adds a demand to the web application. The passed json object should have the following structure (values are added as an example):
             pre.
               {
-                 'domain' : 'Weather', 
-                 'natureOfContent' : ['Records','Satellite Images'], 
-                 'aim' : ['News Enhancement'], 
-                 'description' : 'some description'
-              }              
+                theme: [ 'Weather' ],
+                keyword: [ 'Live Temperatures' ],
+                language: 'EN',
+                license: 'http://purl.org/NET/rdflicense/publicdomain',
+                natureOfContent: [ 'Text' ],
+                spatial: '2562770',
+                demandMotiv: [ 'Live Weather Forecast' ],
+                mediaType: 'application/json',
+                description: 'Display live temperatures',
+                contact: 'WeatherMalta',
+                submitterUrl: 'http://www.someurl.org'
+              }
         tr
           td /demand/exhibit/all
           td
-            | Retreives all information on the demand that can be used in an 
+            | Retreives all information on the demand that can be used in an&nbsp;
             a(href='http://www.simile-widgets.org/exhibit/', target='_blank') Exhibit
             |  interface
         tr
-          td /demand/:field/:value
+          td /demand/:id &deg;
           td
-            | Searches a particular demand according to the field (e.g. domain) and its value (e.g. Weather)
-
+            | Returns the demand instance with the given ID responding to a particular content-type
