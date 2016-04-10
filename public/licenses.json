@@ -1,0 +1,867 @@
+[
+	{
+		
+		"License": "Select License",
+		"URI": -1
+	},
+	{
+		
+		"License": "All rights reserved@en",
+		"URI": "http://purl.org/NET/rdflicense/allrightsreserved"
+	},
+	{
+		
+		"License": "Public domain",
+		"URI": "http://purl.org/NET/rdflicense/publicdomain"
+	},
+	{ 
+		
+		"License": "CLARIN ACAdemic BY",
+		"URI": "http://purl.org/NET/rdflicense/clarin_aca_by"
+	},
+	{
+		
+		"License": "ColorIURIS Copyright",
+		"URI": "http://purl.org/NET/rdflicense/COLORIURIS1.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Portugal",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0pt"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Netherlands",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0nl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Luxemburg",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0lu"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Portugal",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0pt"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Chile",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0cl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Chile",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0cl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Brazil",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0br"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Poland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0pl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Australia",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0au"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Mexico",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5mx"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Germany",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0de"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Greece",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0gr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Spain",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0es"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Ireland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0ie"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Brazil",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0br"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 France",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0fr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Portugal",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0pt"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Ireland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0ie"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-sa4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Germany",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0de"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Denmark",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5dk"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Netherlands",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0nl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Chile",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0cl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Netherlands",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0nl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Venezuela",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0ve"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 United States",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0us"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Spain",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0es"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Chile",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0cl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Spain",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0es"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Brazil",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0br"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Brazil",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0br"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Egypt",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0eg"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 China",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0cn"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Switzerland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0ch"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Italy",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0it"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Venezuela",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0ve"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Italy",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0it"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Ecuador",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ec"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Spain",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0es"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Austria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0at"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Chile",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0cl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Ireland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ie"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Australia",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0au"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Germany",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0de"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Korea",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0kr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 India",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5in"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Peru",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5pe"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Bulgaria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5bg"
+	},
+	{
+		
+		"License": "Creative Commons CC0",
+		"URI": "http://purl.org/NET/rdflicense/cc-zero1.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Romania",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0ro"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Argentina",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5ar"
+	},
+	{
+		
+		"License": "Uve??te p??vod 3.0 ??esk?? republika@cz",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5cz"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Hungary",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5hu"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd2.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa2.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND 3.0 France",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0fr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Germany",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0de"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND China",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0cn"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Venezuela",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0ve"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Romania",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0ro"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 France",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0fr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Germany",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0de"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Canada",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0ca"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Austria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0at"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND 3.0 Austria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0at"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 England & Wales",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0uk"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 2.0 Belgium",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd2.0be"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Romania",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0ro"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Greece",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0gr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd2.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-sa2.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Ireland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0ie"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Greece",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0gr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Netherlands",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0nl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Switzerland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0ch"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 France",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0fr"
+	},
+	{
+		
+		"License": "Public Domain Mark",
+		"URI": "http://purl.org/NET/rdflicense/PDM1.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Spain",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0es"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Australia",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0au"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Japan",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0jp"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Australia",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0au"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 China",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0cn"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-SA",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-sa3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Italy",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0it"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 France",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0fr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Greece",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0gr"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Portugal",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0pt"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Ecuador",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0ec"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Austria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0at"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Austria",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0at"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc2.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Brazil",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0br"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 2.5 Denmark",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd2.5dk"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 China",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0cn"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Switzerland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5ch"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Sweden",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5se"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Italy",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0it"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Venezuela",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ve"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Romania",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ro"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY",
+		"URI": "http://purl.org/NET/rdflicense/cc-by4.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.5 Israel",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.5il"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 New Zealand",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0nz"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 3.0 Ecuador",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0ec"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND Switzerland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0ch"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-NC-ND",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nc-nd3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Italy",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0it"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Australia",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0au"
+	},
+	{
+		
+		"License": "Eclipse Public License",
+		"URI": "http://purl.org/NET/rdflicense/ECLIPSE1.0"
+	},
+	{
+		
+		"License": "License Ouverte@fr",
+		"URI": "http://purl.org/NET/rdflicense/OL1.0"
+	},
+	{
+		
+		"License": "European Commission Copyright",
+		"URI": "http://purl.org/NET/rdflicense/EUC1.0"
+	},
+	{
+		
+		"License": "European Union Public License",
+		"URI": "http://purl.org/NET/rdflicense/EUPL1.1"
+	},
+	{
+		
+		"License": "GNU General Public License",
+		"URI": "http://purl.org/NET/rdflicense/gpl2.0"
+	},
+	{
+		
+		"License": "GNU Free Documentation License@en",
+		"URI": "http://purl.org/NET/rdflicense/gfdl1.3"
+	},
+	{
+		
+		"License": "GNU Lesser General Public License@en",
+		"URI": "http://purl.org/NET/rdflicense/lgpl3.0"
+	},
+	{
+		
+		"License": "GNU Lesser General Public License@en",
+		"URI": "http://purl.org/NET/rdflicense/lgpl2.1"
+	},
+	{
+		
+		"License": "GNU General Public License",
+		"URI": "http://purl.org/NET/rdflicense/gpl3.0"
+	},
+	{
+		
+		"License": "GNU General Public License",
+		"URI": "http://purl.org/NET/rdflicense/gpl1.0"
+	},
+	{
+		
+		"License": "GNU Free Documentation License@en",
+		"URI": "http://purl.org/NET/rdflicense/gfdl1.1"
+	},
+	{
+		
+		"License": "GNU Affero General Public License@en",
+		"URI": "http://purl.org/NET/rdflicense/agpl3.0"
+	},
+	{
+		
+		"License": "Simple Public License",
+		"URI": "http://purl.org/NET/rdflicense/simple2.0"
+	},
+	{
+		
+		"License": "GNU Library General Public License@en",
+		"URI": "http://purl.org/NET/rdflicense/lgpl2.0"
+	},
+	{
+		
+		"License": "Govtrack License",
+		"URI": "http://purl.org/NET/rdflicense/GOVTRACK1.0"
+	},
+	{
+		
+		"License": "Common Public License",
+		"URI": "http://purl.org/NET/rdflicense/COMMON1.0"
+	},
+	{
+		
+		"License": "IBM Public License",
+		"URI": "http://purl.org/NET/rdflicense/IBM1.0"
+	},
+	{
+		
+		"License": "MIT License",
+		"URI": "http://purl.org/NET/rdflicense/MIT1.0"
+	},
+	{
+		
+		"License": "META-SHARE Commercial NoRedistribution",
+		"URI": "http://purl.org/NET/rdflicense/ms-c-nored"
+	},
+	{
+		
+		"License": "META-SHARE Commons BYNCND",
+		"URI": "http://purl.org/NET/rdflicense/ms-commons-byncnd"
+	},
+	{
+		
+		"License": "META-SHARE Commercial NoRedistribution For-A-Fee",
+		"URI": "http://purl.org/NET/rdflicense/ms-c-nored-ff"
+	},
+	{
+		
+		"License": "Microsoft Reference Source License",
+		"URI": "http://purl.org/NET/rdflicense/MICROSOFT1.0"
+	},
+	{
+		
+		"License": "Mozilla Public License",
+		"URI": "http://purl.org/NET/rdflicense/MOZILLA2.0"
+	},
+	{
+		
+		"License": "BOOST Software License 1.0",
+		"URI": "http://purl.org/NET/rdflicense/BOOST1.0"
+	},
+	{
+		
+		"License": "Open Data Commons Open Database License",
+		"URI": "http://purl.org/NET/rdflicense/odbl1.0"
+	},
+	{
+		
+		"License": "Open Data Commons Public Domain Dedication and License",
+		"URI": "http://purl.org/NET/rdflicense/odbc-pddl1.0"
+	},
+	{
+		
+		"License": "Open Data Commons Attribution License",
+		"URI": "http://purl.org/NET/rdflicense/odbc-by1.0"
+	},
+	{
+		
+		"License": "Oracle Berkely DB License",
+		"URI": "http://purl.org/NET/rdflicense/ORACLE1.0"
+	},
+	{
+		
+		"License": "OS Open Data License",
+		"URI": "http://purl.org/NET/rdflicense/OS3.0"
+	},
+	{
+		
+		"License": "Artistic License 2.0",
+		"URI": "http://purl.org/NET/rdflicense/ARTISTIC2.0"
+	},
+	{
+		
+		"License": "Common Development and Distribution License",
+		"URI": "http://purl.org/NET/rdflicense/CDDL1.0"
+	},
+	{
+		
+		"License": "Apache License",
+		"URI": "http://purl.org/NET/rdflicense/APACHE2.0"
+	},
+	{
+		
+		"License": "Apache License",
+		"URI": "http://purl.org/NET/rdflicense/APACHE1.0"
+	},
+	{
+		
+		"License": "Cryptix General License",
+		"URI": "http://purl.org/NET/rdflicense/CRYPTIX1.0"
+	},
+	{
+		
+		"License": "2-clause BSD License",
+		"URI": "http://purl.org/NET/rdflicense/BSD2.0"
+	},
+	{
+		
+		"License": "Free BSD Documentation License",
+		"URI": "http://purl.org/NET/rdflicense/FREEBSD1.0"
+	},
+	{
+		
+		"License": "Open Government Licence",
+		"URI": "http://purl.org/NET/rdflicense/ukogl1.0"
+	},
+	{
+		
+		"License": "UK NonCommercial Government License",
+		"URI": "http://purl.org/NET/rdflicense/ogl-nc1.0"
+	},
+	{
+		
+		"License": "Open Government Licence",
+		"URI": "http://purl.org/NET/rdflicense/ukogl2.0"
+	},
+	{
+		
+		"License": "Open Government Licence Non-Commercial",
+		"URI": "http://purl.org/NET/rdflicense/ukogl-nc2.0"
+	},
+	{
+		
+		"License": "UK NonCommercial Government License",
+		"URI": "http://purl.org/NET/rdflicense/OGL1.0"
+	},
+	{
+		
+		"License": "BSD License 4-clause",
+		"URI": "http://purl.org/NET/rdflicense/BSD4.0"
+	},
+	{
+		
+		"License": "BSD License 3-clause",
+		"URI": "http://purl.org/NET/rdflicense/BSD3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-SA 3.0 Netherlands",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-sa3.0nl"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Ecuador",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0ec"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY",
+		"URI": "http://purl.org/NET/rdflicense/cc-by3.0"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY 2.0 Belgium",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0be"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY-ND 3.0 Switzerland",
+		"URI": "http://purl.org/NET/rdflicense/cc-by-nd3.0ch"
+	},
+	{
+		
+		"License": "Creative Commons CC-BY",
+		"URI": "http://purl.org/NET/rdflicense/cc-by2.0"
+	},
+	{
+		
+		"License": "Academic Free License@en",
+		"URI": "http://purl.org/NET/rdflicense/afl3.0"
+	},
+	{
+		
+		"License": "W3C Software Notice and License",
+		"URI": "http://purl.org/NET/rdflicense/W3C1.0"
+	},
+	{
+		
+		"License": "Web NDL Authority License",
+		"URI": "http://purl.org/NET/rdflicense/NDL1.0"
+	},
+	{
+		
+		"License": "Free Art License@en",
+		"URI": "http://purl.org/NET/rdflicense/fal1.3"
+	},
+	{
+		
+		"License": "Against DRM",
+		"URI": "http://purl.org/NET/rdflicense/againstdrm2.0"
+	}
+]

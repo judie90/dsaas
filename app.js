@@ -4,15 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var negotiate = require('express-negotiate');
 
-// Database
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/dsaas');
+// Triple Store
+var endpoint = 'http://localhost:3030/dsaas'
+
+// Pay-Level Domain
+GLOBAL.payLevelDomain = "urn:"//"http://purl.org/dsaas/";
+
 
 var routes = require('./routes/index');
-var publisher = require('./routes/publisher');
+var dataset = require('./routes/dataset');
 var demand = require('./routes/demand');
+//var recommend = require('./routes/recommend');
+
+var display_dataset = require('./routes/display_dataset');
+var display_demand = require('./routes/display_demand');
+
 
 var app = express();
 
@@ -28,15 +36,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Make our db accessible to our router
+// Make our endpoint accessible to our router
 app.use(function(req,res,next){
-    req.db = db;
+    req.db = endpoint;
     next();
 });
 
 app.use('/', routes);
-app.use('/publisher', publisher);
+app.use('/dataset', dataset);
 app.use('/demand', demand);
+app.use('/page/dataset', display_dataset);
+app.use('/page/demand', display_demand);
+//app.use('/recommend', recommend);
 
 
 // catch 404 and forward to error handler
@@ -76,15 +87,15 @@ var nodemailer = require('nodemailer');
 
 app.post('/contactres', function (req, res) {
   var mailOpts;
-  
+
 	var transporter = nodemailer.createTransport('SMTP', {
       service: 'Gmail',
       auth: {
           user: "jerdebattista@gmail.com",
-          pass: "PASSWORD" 
+          pass: "PASSWORD"
       }
   });
-	
+
   //Mail options
   mailOpts = {
       from: req.body.txtName + " &lt;" + req.body.txtEmail + "&gt;", //grab form data from the request body object

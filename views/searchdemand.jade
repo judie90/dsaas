@@ -7,31 +7,51 @@ block content
         .col-md-12
           h1 Target New Opportunities
           p
-            | Data Publishers are encouraged to provide data to match the Consumers' demands, thus enabling the Publisher to target a possible niche in the market. To search for an API using the DSaaS RESTful API, click 
+            | Data Publishers are encouraged to provide data to match the Consumers' demands, thus enabling the Publisher to target a possible niche in the market. To search for datasets using the DSaaS RESTful API, click 
             a(href='/api') here
             | .
       .row
         .col-md-8
           .bs-callout.bs-callout-info(ex:role='exhibit-lens')
+            input#pid(ex:value-content='._id', type='hidden')
+            a(ex:href-content='.uri')
             h4
-                span(ex:content='.domain')
+                span(ex:content='.theme')
             br
             br
-            | 			 Content Type: 
-            span(ex:content='.natureOfContent')
+            | 			 Content Type:
+            span(ex:content="if(exists(.natureOfContent), .natureOfContent, ' n/a')")
             br
             br
-            | 			 Aims: 
-            span(ex:content='.aim')
+            | 			 Language:
+            span(ex:content='.language')
             br
             br
-            | 			 Description: 
+            | 			 Keywords:
+            span(ex:content='.keyword')
+            br
+            br
+            | 			 Motivation:
+            span(ex:content="if(exists(.demandMotiv), .demandMotiv, ' n/a')")
+            br
+            br
+            | 			 Description:
             span(ex:content='.description')
-           
+            br
+            br
+            | 			 Number of Demand Supporters:
+            span(ex:content='.interested')
+            br
+            br
+            a(onclick='callDemandDetails($(this).parent())') View all details
+            &nbsp; &nbsp;
           div(ex:role='exhibit-view', ex:viewclass='Exhibit.TileView', ex:orders='.domain', ex:directions='ascending', ex:possibleorders='.domain, .aim', ex:showall='true', ex:grouped='false')
         .col-md-4
-          div(ex:role='facet', ex:expression='.domain', ex:sortmode='count', ex:facetlabel='Domain')
-          div(ex:role='facet', ex:expression='.aim', ex:sortmode='count', ex:facetlabel='Aim')
-          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Content Type')
+          div(ex:role='facet', ex:expression='.language', ex:sortmode='count', ex:facetlabel='Language')
+          div(ex:role='facet', ex:expression='.licenseLabel', ex:sortmode='count', ex:facetlabel='License')
+          div(ex:role='facet', ex:expression='.spatial', ex:sortmode='count', ex:facetlabel='Geographic Coverage')
+          div(ex:role='facet', ex:expression='.mediaType', ex:sortmode='count', ex:facetlabel='Access Format')
+          div(ex:role='facet', ex:expression='.theme', ex:sortmode='count', ex:facetlabel='Domain')
+          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Nature of Content')
     hr
     // /container

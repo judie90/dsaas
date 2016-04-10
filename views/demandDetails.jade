@@ -1,0 +1,132 @@
+extends layout
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1
+          Data Request for:
+    .row
+      .col-md-12
+        div#datasetDescription(class='bs-callout bs-callout-danger')
+          i
+            = description
+        span#submitter
+         i
+          strong
+           | Submitter:&nbsp;
+         = submitter
+         br
+         br
+         span#submittedURL
+          i
+           strong
+            | Submitter URL:&nbsp;
+          a(href='#{submitterUrl}')= submitterUrl
+          br
+          br
+        if (demandMotiv != null)
+          span#motivation
+           i
+            strong
+             | Data Usage Motivation:&nbsp;
+           = demandMotiv
+           br
+           br
+        span#accessMediaType
+          i
+            strong
+              | Desired Access Format:&nbsp;
+          | #{mediaType.replace('http://www.sparontologies.net/mediatype/','')}
+          br
+          br
+        span#requestDomain
+          i
+           strong
+            | Domain:&nbsp;
+          = theme
+          br
+          br
+        span#requestKeywords
+          i
+           strong
+            | Keywords:&nbsp;
+          each item in keyword
+            span(class='label label-info')= item
+            | &nbsp;
+          br
+          br
+          span#requestLanguage
+            i
+             strong
+              | Language:&nbsp;
+            a(href='#{language}')= languagePrefLabel
+            br
+            br
+          if (license != null)
+            span#requestLicence
+              i
+                strong
+                 | License:&nbsp;
+              a(href='#{license}')= license
+              br
+              br
+          if (natureOfContent != null)
+            span#noc
+              i
+               strong
+                | Nature of Content:&nbsp;
+              each item in natureOfContent
+                span(class='label label-warning')= item
+                | &nbsp;
+              br
+              br
+          if (spatial != null)
+            span#geoCoverage
+             i
+              strong
+               | Geographic Coverage:&nbsp;
+             a(href='#{spatial}')= spatialPrefLabel
+             br
+             br
+          if ((tStartDate != null) && (tEndDate != null))
+            span#temporalCoverage
+              i
+                strong
+                 | Temporal Coverage:&nbsp;
+              if (tStartDate != null)
+                = tStartDate
+                | &nbsp;-&nbsp;
+              if (tEndDate != null)
+                = tEndDate
+  hr
+  .container
+    .row
+      .col-md-12
+        | Are you also interested in this data? Then submit your interest&nbsp;
+        a(onclick="$('#addYourInterest').toggleClass('hidden')") here.
+    .row#addYourInterest(class='hidden')
+      .col-md-12
+        form#formAddInterest
+          input#demandId(type='hidden' value= demand)
+          .form-group
+            label(for='txtContact') Contact Name*
+            input#txtContact.form-control(type='text', placeholder='e.g. BBC')
+          // Contact uri
+          .form-group
+            label(for='txtContactURL') Contact URL*
+            input#txtContactURL.form-control(type='url', placeholder='e.g. www.bbc.com')
+          br
+          button.btn.btn-default(type='button', onclick='addInterestOnDemand(this);') Add Your Interest
+
+    .row
+      .col-md-12
+        h4
+          Other Interested Parties:
+        ul
+          each item in secondedBy
+            li
+              | #{item.submitter}
+              | - (
+              a(href='#{item.submitterUrl}') #{item.submitterUrl}
+              | )

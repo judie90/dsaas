@@ -1,0 +1,99 @@
+extends layout
+
+block content
+   .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Demand an API ...
+          h2 ... and get the data you need
+          p
+            | Data Consumers should take full advantage of this Ecosystem and ask for their data requirements on this portal. Potential Data Publishers can use this portal by checking for the current demands 
+            a(href='/searchdemand') here
+            |.  To submit your demand using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | . 
+      .row
+        .col-md-8
+          form#formAddDemand
+            // Theme
+            .form-group
+              label(for='txtTheme') Dataset Domain*
+              input#txtTheme.form-control(type='text', data-role='tagsinput', placeholder='e.g. Music')
+            // Keywords
+            .form-group
+              label(for='txtKeyword') Keywords*
+              input#txtKeyword.form-control(type='text', data-role='tagsinput', placeholder='e.g. Music, Records, Germany, Rock')
+            // Language
+            .form-group
+              label(for='ddLanguage') Language*      
+              select#ddLanguage.form-control
+              //option(value='')
+            //License
+            .form-group
+              //label(for='txtLicense') Dataset License
+              //input#txtLicense.form-control(type='text', placeholder='e.g. MIT/GPL')	
+              label(for='ddLicense') Dataset License    
+              select#ddLicense.form-control
+            // Nature of Content
+            .form-group
+              label Nature of Content
+              br
+              input#checkboxImages(type='checkbox')
+              |&nbsp; Images &nbsp;
+              input#checkboxText(type='checkbox')
+              |&nbsp; Text &nbsp;
+              input#checkboxNumeric(type='checkbox')
+              |&nbsp; Numeric &nbsp;
+              input#checkboxDocuments(type='checkbox')
+              |&nbsp; Documents &nbsp;
+              input#checkboxApplications(type='checkbox')
+              |&nbsp; Applications &nbsp;
+            // Spatial 
+            .form-group
+              label(for='ddCountry') Geographical Area covered by Dataset
+              select#ddCountry.form-control
+            // Temporal	
+            .form-group.date
+              label(for='dateTemporal') Time Span covered by Dataset
+              #datepicker.input-daterange.input-group
+                 input#StartDate.input.form-control(type='date', name='start', placeholder='Start Date')
+                 span.input-group-addon to
+                 input#EndDate.input.form-control(type='date', name='end', placeholder='End Date')
+            // Motivation
+            .form-group
+              label(for='txtAim') Motivation for re-using data
+              input#txtAim.form-control(type='text', data-role='tagsinput', placeholder='e.g. News Enhancement')
+            // Media Type
+            .form-group
+              label(for='ddMediaType') Desired Access Method*      
+              select#ddMediaType.form-control
+              //input#ddMediaType.form-control(type='text', placeholder='e.g. JSON')			
+            // Description
+            .form-group
+              label(for='txtDescription') Usage Description*
+              textarea#txtDescription.form-control(rows='5')
+            // Contact Name or e-mail
+            .form-group
+              label(for='txtContact') Contact Name*
+              input#txtContact.form-control(type='text', placeholder='e.g. BBC')
+            // Contact uri
+            .form-group
+              label(for='txtContactURL') Contact URL*
+              input#txtContactURL.form-control(type='url', placeholder='e.g. www.bbc.com')
+            br					
+            button.btn.btn-default(type='button', onclick='addNewDemand(this);') Submit Demand
+        .col-md-4
+          .bs-callout.bs-callout-info
+            h4 Nature of Content
+            p
+              | What are the desired contents of the required data? Images, Documents, Numbers? Select all relevant.
+          .bs-callout.bs-callout-warning
+            h4 Motivation for Demand
+            p
+              | How do you plan to use the data you are requesting? For example News Enhancement or Forensic Analysis. Please use short 2/3 word descriptions. Press the Enter button for each motivation. Further discussion on how you plan to use the data should be written in the Description text box. 
+          .bs-callout.bs-callout-success
+            h4 Dataset Recommendation
+            p
+              | You can use the Recommend me a Dataset button at the bottom of the form to get a recommendation on datasets that are similar to the information you input on the form (based on domain and keywords). If these datasets are not what you need, you can then proceed to submit your data request. 
+      hr

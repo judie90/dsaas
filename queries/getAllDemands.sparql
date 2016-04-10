@@ -1,0 +1,53 @@
+SELECT ?demand ?language ?license ?spatial
+?tstart ?tend ?format ?desc
+((group_concat(distinct ?themeLabel ; separator = ",")) as ?themes)
+((group_concat(distinct ?kw ; separator = ",")) as ?keywords)
+((group_concat(distinct ?motiv ; separator = ",")) as ?motivations)
+((group_concat(distinct ?content ; separator = ",")) as ?natureOfContent)
+?name ?homepage ?licenseLabel
+(count(distinct ?seconded) as ?interested)
+WHERE {
+  ?demand a <http://example.org/dso#DataRequest> ;
+      <http://example.org/dso#language> ?language ;
+      <http://example.org/dso#mediaType> ?format ;
+      <http://example.org/dso#description> ?desc ;
+      <http://example.org/dso#theme> [
+          a <http://www.w3.org/2008/05/skos#Concept> ;
+          <http://www.w3.org/2008/05/skos#prefLabel> ?themeLabel
+      ] ;
+      <http://example.org/dso#keyword> ?kw ;
+      <http://example.org/dso#submitter> [
+          <http://xmlns.com/foaf/0.1/name> ?name ;
+          <http://xmlns.com/foaf/0.1/homepage> ?homepage
+      ] .
+
+			OPTIONAL{
+        ?demand <http://example.org/dso#license> ?license
+
+        GRAPH <http://purl.org/NET/rdflicense/> {
+          ?license <http://www.w3.org/2000/01/rdf-schema#label> ?licenseLabel .
+        }
+      } .
+			OPTIONAL{ ?demand <http://example.org/dso#requestContent> ?cnt} .
+			OPTIONAL{ ?demand <http://example.org/dso#spatialRange> ?spatial } .
+			OPTIONAL{ ?demand <http://example.org/dso#temporalRange> [
+          a <http://purl.org/dc/terms/PeriodOfTime> ;
+          <http://schema.org/startDate> ?tstart ;
+          <http://schema.org/endDate> ?tend
+      ] } .
+			OPTIONAL{ ?demand <http://example.org/dso#motivation> ?motiv } .
+
+      GRAPH <http://example.org/dso#> {
+        ?cnt a <http://www.w3.org/2008/05/skos#Concept> .
+        ?cnt <http://www.w3.org/2008/05/skos#prefLabel> ?content .
+      }
+
+      OPTIONAL { ?demand <http://example.org/dso#secondedBy> ?seconded . }
+
+
+  } GROUP BY
+  ?demand ?language ?license
+  ?spatial ?tstart ?tend ?format
+  ?desc ?themes ?keywords ?motivations
+  ?natureOfContent ?name ?homepage
+  ?licenseLabel

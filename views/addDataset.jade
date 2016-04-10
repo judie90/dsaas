@@ -1,0 +1,194 @@
+extends layout
+
+block content
+    style(type='text/css').
+      .bootstrap-tagsinput {
+      width: 100%;
+      }
+      .label {
+      line-height: 2 !important;
+      }
+    .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Contribute to the Demand and Supply Cloud
+          p
+            | Data publishers are encouraged to advertise their data here. This will make it easier for data consumers do discover and use. For submitting your data using the DSaaS RESTful API, click 
+            a(href='/api') here
+            | .
+          h2 Dataset Information
+      .row
+        .col-md-8
+          form#formAddDataset
+            // Title
+            .form-group
+              label(for='txtTitle') Title*
+              input#txtTitle.form-control(type='text')
+            // Landing Page
+            .form-group
+              label(for='txtDatasetURL') Dataset URL*
+              input#txtDatasetURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/doc/MusicBrainz_Database')
+            // Theme
+            .form-group
+              label(for='txtTheme') Dataset Domain*
+              input#txtTheme.form-control(type='text', data-role='tagsinput', placeholder='e.g. Music')
+            // Keywords
+            .form-group
+              label(for='txtKeyword') Keywords*
+              input#txtKeyword.form-control(type='text', data-role='tagsinput', placeholder='e.g. Music, Records, Germany, Rock')
+            // Publisher
+            .form-group
+              label(for='txtPubName') Publisher Name*
+              input#txtPubName.form-control(type='text', placeholder='e.g. Music Brainz')
+            // publisherURL
+            .form-group
+              label(for='txtPubURL') Publisher URL*
+              input#txtPubURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/')
+            // Language
+            .form-group
+              label(for='ddLanguage') Language*
+              select#ddLanguage.form-control
+              //option(value='')
+            //License
+            .form-group
+              //label(for='txtLicense') Dataset License
+              //input#txtLicense.form-control(type='text', placeholder='e.g. MIT/GPL')
+              label(for='ddLicense') Dataset License*
+              select#ddLicense.form-control
+            // Nature of Content
+            .form-group
+              label Nature of Content
+              br
+              input#checkboxImages(type='checkbox')
+              |&nbsp; Images &nbsp;
+              input#checkboxText(type='checkbox')
+              |&nbsp; Text &nbsp;
+              input#checkboxNumeric(type='checkbox')
+              |&nbsp; Numeric &nbsp;
+              input#checkboxDocuments(type='checkbox')
+              |&nbsp; Documents &nbsp;
+              input#checkboxApplications(type='checkbox')
+              |&nbsp; Applications &nbsp;
+            // Date Issued
+            .form-group
+              label(for='txtDateIssued') Date Issued
+              input#dateIssued.form-control(type='date')
+            // Date Modified
+            .form-group
+              label(for='txtDateModified') Date Modified
+              input#dateModified.form-control(type='date')
+            // Spatial
+            .form-group
+              label(for='ddCountry') Geographical Area covered by Dataset
+              select#ddCountry.form-control
+              //option(value='')
+            // Temporal
+            .form-group.date
+              label(for='dateTemporal') Time Span covered by Dataset
+              #datepicker.input-daterange.input-group
+                 input#StartDate.input.form-control(type='date', name='start', placeholder='Start Date')
+                 span.input-group-addon to
+                 input#EndDate.input.form-control(type='date', name='end', placeholder='End Date')
+            br
+            // Description
+            .form-group
+              label(for='txtDescription') Description*
+              textarea#txtDescription.form-control(rows='5')
+            br
+
+            h2 Are there various ways to access and use this Dataset?
+            p Information about the various distributions of Dataset
+            br
+          form#formAddDistribution
+            // Title
+            .form-group
+              label(for='txtTitle') Title*
+              input#txtTitle.form-control(type='text')
+            // Media Type
+            .form-group
+              label(for='ddMediaType') Access Method*
+              select#ddMediaType.form-control
+              //input#ddMediaType.form-control(type='text', placeholder='e.g. JSON')
+            // Access uri
+            .form-group
+              label(for='txtAccessURL') Access URI*
+              input#txtAccessURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/doc/MusicBrainz_Database')
+            // Download uri
+            .form-group
+              label(for='txtDownloadURL') Download URI (Direct dowload link)
+              input#txtDownloadURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/json')
+            // Date Modified
+            .form-group
+              label(for='dateModifiedDistrib') Date Modified
+              input#dateModifiedDistrib.form-control(type='date')
+            // Distributor
+            .form-group
+              label(for='txtDistName') Distributor Name
+              input#txtDistName.form-control(type='text', placeholder='e.g. Music Brainz')
+            // Distributor URL
+            .form-group
+              label(for='txtDistURL') Distributor URL
+              input#txtDistURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/')
+              br
+              button#btnAddDistribution.btn.btn-default(type='button', data-role='tagsinput', onclick='addDistribution(this)') Add Distribution
+            br
+            span#txtDistribution.form-control-static.text-primary
+            hr
+            h2 Do you know of any Data Consumer who successfully re-used your data product?
+            p Information about Consumers using this Dataset
+          form#formAddUseCase
+            // Title
+            .form-group
+              label(for='txtTitle') Title*
+              input#txtTitle.form-control(type='text')
+            // Generator/Consumer
+            .form-group
+              label(for='txtConName') Consumer Name
+              input#txtConName.form-control(type='text', placeholder='e.g. BBC')
+            // Consumer uri
+            .form-group
+              label(for='txtConURL') Consumer URL*
+              input#txtConURL.form-control(type='url', placeholder='e.g. www.bbc.com')
+            // Consumer's Aim
+            .form-group
+              label(for='txtConAim') Consumer's Motivation
+              input#txtConAim.form-control(type='text', data-role='tagsinput', placeholder='e.g. News Enhancement')
+            .form-group
+              label(for='txtCaseURL') Use Case URL*
+              input#txtCaseURL.form-control(type='url', placeholder='e.g. http://www.bbc.co.uk/music/brainz/')
+            .form-group
+              label(for='dd_ucDistributionType') Distribution Method used*
+              select#dd_ucDistributionType.form-control
+                option(value='-1') Select Distribution used
+            .form-group
+              label(for='txtCaseDesc') Use Case Description*
+              textarea#txtCaseDesc.form-control(rows='5')
+              br
+              button#btnAddUseCase.btn.btn-default(type='button', data-role='tagsinput', onclick='addUsecase(this)') Add Use Case
+            span#txtUseCase.form-control-static.text-primary
+            br
+            br
+            button.btn.btn-success(type='button', onclick='addDataset(this);') Submit Dataset
+        .col-md-4
+          .bs-callout.bs-callout-info
+            h4 Dataset Domain
+            p
+              | Data published should be tagged with at least one domain. Press the Enter button for each domain.
+          .bs-callout.bs-callout-warning
+            h4 Nature of Content
+            p
+              | What is the content of the provided data? Images, Documents, Numbers? Select all relevant. 
+          .bs-callout.bs-callout-danger(style='margin-top:1140px')
+            h4 Access Methods
+            p
+              | In what format is your data available for access? Text document (.txt), JSON (.json), etc.
+          .bs-callout.bs-callout-info(style='margin-top:675px')
+            h4 Consumer's Motivation
+            p
+              | Why is the consumer using your data? For example News Enhancement or Forensic Analysis. Press the Enter button to add each motivation.
+          .bs-callout.bs-callout-warning
+            h4 More Consumers
+            p
+              | For each consumer (including the first one), please press the Add Consumer button before submitting.
+      hr

@@ -1,0 +1,16 @@
+SELECT * {
+	<%%id%%> <http://www.w3.org/ns/dcat#distribution> ?distributionURI .
+	?distributionURI a <http://www.w3.org/ns/dcat#Distribution> ;
+		<http://purl.org/dc/terms/title> ?title ;
+		<http://www.w3.org/ns/dcat#mediaType> ?accessMethod ;
+		<http://www.w3.org/ns/dcat#mediaType>	?mediaType ;
+		<http://www.w3.org/ns/dcat#accessURL>	?accessURL .
+		
+		OPTIONAL{ ?distributionURI 	<http://www.w3.org/ns/dcat#downloadURL>	?downloadURL }.
+		OPTIONAL{ ?distributionURI 	<http://purl.org/dc/terms/modified> ?modified } .
+		OPTIONAL{ ?distributionURI 	<http://purl.org/dc/terms/spatial> ?spatial } .
+		OPTIONAL{ ?distributionURI <http://example.org/dso#distributor>	[
+			<http://xmlns.com/foaf/0.1/name> ?distributorName ;
+			<http://xmlns.com/foaf/0.1/homepage> ?distributorHomePage ]  
+		} .
+} 

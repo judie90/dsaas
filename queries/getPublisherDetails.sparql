@@ -1,0 +1,42 @@
+SELECT ?dataset ?title ?landingPage
+((group_concat(distinct ?themeLabel ; separator = ",")) as ?themes)
+((group_concat(distinct ?kw ; separator = ",")) as ?keywords)
+((group_concat(distinct ?content ; separator = ",")) as ?natureOfContent)
+?publisher ?publisherURL ?publisherName
+?language ?license ?dateIssued
+?dateModified ?spatial
+?tStartDate ?tEndDate ?datasetDescription  WHERE
+{ <%%id%%> a <http://www.w3.org/ns/dcat#Dataset> ;
+	<http://purl.org/dc/terms/title> ?title ;
+	<http://www.w3.org/ns/dcat#landingPage> ?landingPage ;
+	<http://www.w3.org/ns/dcat#theme> [
+			a <http://www.w3.org/2008/05/skos#Concept> ;
+			<http://www.w3.org/2008/05/skos#prefLabel> ?themeLabel
+	] ;
+	<http://www.w3.org/ns/dcat#keyword> ?kw ;
+	<http://purl.org/dc/terms/publisher> ?publisher ;
+	<http://purl.org/dc/terms/language> ?language ;
+	<http://purl.org/dc/terms/license> ?license ;
+	<http://purl.org/dc/terms/description> ?datasetDescription ;
+	<http://purl.org/dc/terms/publisher> ?publisher .
+	?publisher <http://xmlns.com/foaf/0.1/name> ?publisherName ;
+		<http://xmlns.com/foaf/0.1/homepage> ?publisherURL .
+
+	OPTIONAL{ <%%id%%>	<http://example.org/dso#content> ?cnt } .
+	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/issued> ?dateIssued } .
+	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/modified> ?dateModified } .
+	OPTIONAL{ <%%id%%> 	<http://purl.org/dc/terms/spatial> ?spatial } .
+	OPTIONAL{ <%%id%%> <http://purl.org/dc/terms/temporal>  [
+		a <http://purl.org/dc/terms/PeriodOfTime> ;
+		<http://schema.org/startDate> ?tStartDate ;
+		<http://schema.org/endDate> ?tEndDate    ] } .
+
+	GRAPH <http://example.org/dso#> {
+		?cnt a <http://www.w3.org/2008/05/skos#Concept> .
+		?cnt <http://www.w3.org/2008/05/skos#prefLabel> ?content .
+	}
+}
+GROUP BY
+?dataset ?title ?landingPage ?publisher ?publisherURL
+?publisherName ?language ?license ?dateIssued ?dateModified
+?tStartDate ?tEndDate ?spatial ?datasetDescription

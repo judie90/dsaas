@@ -16,8 +16,8 @@ html(lang='en')
       padding-top: 50px;
       padding-bottom: 20px;
       }
-    link(href='stylesheets/bootstrap.css', rel='stylesheet')
-    link(href='stylesheets/style.css', rel='stylesheet')
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    link(href='/stylesheets/style.css', rel='stylesheet')
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
@@ -38,23 +38,22 @@ html(lang='en')
         .navbar-collapse.collapse(style='float:right')
           ul.nav.navbar-nav
             li
-              a(href='about') About
+              a(href='/about') About
             li
-              a(href='add') Add your Data
+              a(href='/addDataset') Add your Datasets
             li
-              a(href='search') Search for Data
+              a(href='/search') Search for Data
             li
-              a(href='demand') Ask for Data
+              a(href='/addDemand') Ask for Data
             li
-              a(href='searchdemand') What's the Demand?
+              a(href='/searchdemand') What's the Demand?
             li
-              a(href='contact') Contact
+              a(href='/contact') Contact
         // /.navbar-collapse
     // Main jumbotron for a primary marketing message or call to action
     block content
     footer
         p
-          | 
     script(type='text/javascript', src='/javascripts/jquery.min.js')
     script(type='text/javascript', src='/javascripts/global.js')
     script(type='text/javascript', src='/javascripts/bootstrap.min.js')

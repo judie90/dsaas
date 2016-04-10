@@ -1,0 +1,65 @@
+extends layout
+
+block content
+    style(type='text/css').
+      .bootstrap-tagsinput {
+      width: 100%;
+      }
+      .label {
+      line-height: 2 !important;
+      }
+    .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Contribute to the Demand and Supply Cloud
+          p
+            | Did you create a new access method for this published Datset? Advertise it here to encourage consumers to re-use it!
+            | .
+          h2 Distribution Information
+      .row
+        .col-md-8
+          form#formAddDistribution
+            label#datasetTitle Add distribution for Dataset: 
+              span= datasetTitle
+            input#datasetId(type='hidden' value= datasetId)
+            br
+            br
+            // Title
+            .form-group
+              label(for='txtTitle') Title*
+              input#txtTitle.form-control(type='text')
+            // Media Type
+            .form-group
+              label(for='ddMediaType') Access Method*      
+              select#ddMediaType.form-control
+              //input#ddMediaType.form-control(type='text', placeholder='e.g. JSON')
+            // Access uri
+            .form-group
+              label(for='txtAccessURL') Access URI*
+              input#txtAccessURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/doc/MusicBrainz_Database')
+            // Download uri
+            .form-group
+              label(for='txtDownloadURL') Download URI (Direct dowload link)
+              input#txtDownloadURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/json')
+            // Date Modified
+            .form-group
+              label(for='dateModifiedDistrib') Date Modified
+              input#dateModifiedDistrib.form-control(type='date')
+            // Distributor
+            .form-group
+              label(for='txtDistName') Distributor Name
+              input#txtDistName.form-control(type='text', placeholder='e.g. Music Brainz')
+            // Distributor URL
+            .form-group
+              label(for='txtDistURL') Distributor URL
+              input#txtDistURL.form-control(type='url', placeholder='e.g. http://musicbrainz.org/')
+              br
+              button#btnAddDistribution.btn.btn-success(type='button', onclick='saveDistribution(this)') Add Distribution            
+            br
+        .col-md-4
+          .bs-callout.bs-callout-info(style='margin-top:60px')
+            h4 Distributor
+            p
+              | Who created this new access method for the Dataset?
+      hr

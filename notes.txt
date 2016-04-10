@@ -1,0 +1,7 @@
+Notes:  
+1) In app.js, I added the endpoint URI 
+2) In publisher.js i changed the routes.. they were confusing 
+3) add/dataset -> inserted triples to endpoint 
+4) dso:UseCase or dcat:UseCase? 
+5) to continue sparql.js in helper -> sparql should return information about the use cases and distributions? 
+6) dct:endDate or schema.org:endDate?   

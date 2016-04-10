@@ -1,0 +1,211 @@
+extends layout
+
+block content
+    .container
+      .row
+        .col-md-12
+          h1
+            span= title
+      .row
+        .col-md-8
+          span#publisherName
+            h4
+              a(href='#{pubUri}')= pubName
+          div#datasetDescription(class='bs-callout bs-callout-danger')
+            i
+              = desc
+          strong
+            | Dataset URL:&nbsp;
+          a(href='#{landing}')= landing
+          br
+          br
+          span#language
+            i
+             strong
+              | Language:&nbsp;
+            a(href='#{language}')= languagePrefLabel
+            br
+            br
+          span#domain
+            i
+             strong
+              | Domains:&nbsp;
+              each item in themes
+                span(class='label label-info')= item
+                | &nbsp;
+            br
+            br
+          span#keywords
+            i
+             strong
+              | Keywords:&nbsp;
+              each item in keywords
+                span(class='label label-success')= item
+                | &nbsp;
+            br
+            br
+          if (natureOfContent != null)
+            span#noc
+              i
+               strong
+                | Nature of Content:&nbsp;
+                each item in natureOfContent
+                  span(class='label label-warning')= item
+                  | &nbsp;
+              br
+              br
+          if (license != null)
+            span#Licence
+              i
+                strong
+                 | License:&nbsp;
+              a(href='#{license}')= license
+              br
+              br
+          if (dateIssued != null)
+            span#dateIssued
+              i
+                strong
+                 | Date Issued:&nbsp;
+              = dateIssued
+              br
+              br
+          if (dateModified != null)
+            span#dateModified
+             i
+              strong
+               | Date Modified:&nbsp;
+             = dateModified
+             br
+             br
+          if (spatial != null)
+            span#geoCoverage
+             i
+              strong
+               | Geographic Coverage:&nbsp;
+             a(href='#{spatial}')= spatialPrefLabel
+             br
+             br
+          if ((tStartDate != null) && (tEndDate != null))
+            span#temporalCoverage
+              i
+                strong
+                 | Temporal Coverage:&nbsp;
+              if (tStartDate != null)
+                = tStartDate
+                | &nbsp;-&nbsp;
+              if (tEndDate != null)
+                = tEndDate
+        .col-md-4
+          h4
+            | Jump to :
+          br
+          a(href="#useCases") Use Cases
+          br
+          a(href="#distributions") Distributions
+      hr
+    .container
+      .row
+        .col-md-12
+          h2
+            a(name='useCases') Use Cases
+      .row
+        .col-md-12
+          each item in cases
+            div#useCaseDescription(class='bs-callout bs-callout-primary')
+              span#ucTitle
+                strong
+                   | #{item.caseTitle}
+                br
+                br
+              span#ucDescription
+                i
+                  | #{item.useCaseDesc}
+                br
+                br
+              if (item.generatorName != null)
+                span#ucMotivation
+                  i
+                   strong
+                    | Motivation for re-use:&nbsp;
+                  | #{item.motivation}
+                  br
+                  br
+              if (item.generatorName != null)
+                span#ucCretor
+                  i
+                   strong
+                    | Creator:&nbsp;
+                  a(href='#{item.generatorHomePage}') #{item.generatorName}
+                  br
+                  br
+              if (item.generatorHomePage != null)
+                span#ucHomePage
+                  i
+                   strong
+                    | Home Page:&nbsp;
+                  | #{item.generatorHomePage}
+                  br
+                  br
+              if (item.distributionUsed != null)
+                span#ucDistributionUsed
+                  i
+                   strong
+                    | Distribution Used:&nbsp;
+                 | #{item.distributionUsed}
+
+      hr
+    .container
+       .row
+         .col-md-12
+           h2
+            a(name="distributions") Distributions
+       .row
+         .col-md-12
+           each item in distribution
+             div#datasetDistributionMethod(class='bs-callout bs-callout-warning')
+               span#distributionTitle
+                 a(href='#{item.distributionURI}') #{item.distribTitle}
+                 br
+                 br
+               span#distributionMediaType
+                 i
+                   strong
+                     | Media Type:&nbsp;
+                 | #{item.mediaType.replace('http://www.sparontologies.net/mediatype/','')}
+                 br
+                 br
+               span#distributionAccessURI
+                 i
+                   strong
+                     | Access URI:&nbsp;
+                 a(href='#{item.accessURL}') #{item.accessURL}
+                 br
+                 br
+               if (item.modified != null)
+                 span#distributionLastModified
+                   i
+                     strong
+                       | Last Modified:&nbsp;
+                   | #{item.modified}
+                   br
+                   br
+               if (item.downloadURL != null)
+                 span#distributionLastModified
+                   i
+                     strong
+                       | Download URL:&nbsp;
+                   a(href='#{item.downloadURL}') #{item.downloadURL}
+                   br
+                   br
+               if (item.distributorName != null)
+                 span#distributionDistributorName
+                   i
+                     strong
+                       | Distributor:&nbsp;
+                   if (item.distributorHomePage != null)
+                     a(href='#{item.distributorHomePage}') #{item.distributorName}
+                   else
+                     | #{item.distributorName}
+                   br
+                   br

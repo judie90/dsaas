@@ -1,0 +1,62 @@
+extends layout
+
+block content
+    style(type='text/css').
+      .bootstrap-tagsinput {
+      width: 100%;
+      }
+      .label {
+      line-height: 2 !important;
+      }
+    .container
+      // Example row of columns
+      .row
+        .col-md-12
+          h1 Contribute to the Demand and Supply Cloud
+          p
+            | Did you re-use this published Dataset? Here is your opportunity to show your success story!
+          h2 Use Case Information
+      .row
+        .col-md-8
+          form#formAddUseCase
+            label#datasetTitle Add usecase for Dataset:
+              span= datasetTitle
+            input#datasetId(type='hidden' value= datasetId)
+            br
+            br
+            // Title
+            .form-group
+              label(for='txtTitle') Title*
+              input#txtTitle.form-control(type='text')
+            // Generator/Consumer
+            .form-group
+              label(for='txtConName') Consumer Name
+              input#txtConName.form-control(type='text', placeholder='e.g. BBC')
+            // Consumer uri
+            .form-group
+              label(for='txtConURL') Consumer URL*
+              input#txtConURL.form-control(type='url', placeholder='e.g. www.bbc.com')
+            // Consumer's Aim
+            .form-group
+              label(for='txtConAim') Consumer's Motivation
+              input#txtConAim.form-control(type='text', data-role='tagsinput', placeholder='e.g. News Enhancement')
+            .form-group
+              label(for='txtCaseURL') Use Case URL*
+              input#txtCaseURL.form-control(type='url', placeholder='e.g. http://www.bbc.co.uk/music/brainz/')
+            .form-group
+              label(for='dd_ucDistributionType') Distribution Method used*
+              select#dd_ucDistributionType.form-control
+                option(value='-1') Select Distribution used
+                each item in distribution
+                  option(value='#{item.distributionURI}') #{item.title}
+            .form-group
+              label(for='txtCaseDesc') Use Case Description*
+              textarea#txtCaseDesc.form-control(rows='5')
+              br
+              button#btnAddUseCase.btn.btn-success(type='button', onclick='saveUsecase(this);') Add Use Case
+        .col-md-4
+          .bs-callout.bs-callout-info(style='margin-top:60px')
+            h4 Consumer's Motivation
+            p
+              | Why is the consumer using your data? For example News Enhancement or Forensic Analysis. Press the Enter button to add each motivation.
+      hr

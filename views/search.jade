@@ -1,61 +1,54 @@
 extends layout
 block exhibit
-   link(rel='exhibit-data', type='application/json', href='publisher/exhibit/all')
+   link(rel='exhibit-data', type='application/json', href='dataset/exhibit/all')
 block content
     .container
       .row
         .col-md-12
           h1 Find your Match!
           p
-            | Data Consumers are encouraged to find a suitable Publisher to 
-            i match
-            |  their needs for accessing data to do various tasks such as mashups, data integration, or even enhancement of current content. To search for an API using the DSaaS RESTful API, click 
+            | Data Consumers are encouraged to find a suitable dataset which  
+            i matches
+            |  their needs for various tasks such as mashups, data integration, or even enhancement of current content. To search for datasets using the DSaaS RESTful API, click 
             a(href='/api') here
             | .
       .row
         .col-md-8
-          .bs-callout.bs-callout-info(ex:role='exhibit-lens', ex:onshow='prepareLens(this);')
+          .bs-callout.bs-callout-info(ex:role='exhibit-lens')
             input#pid(ex:value-content='._id', type='hidden')
             a(ex:href-content='.uri')
               h4
-                span(ex:content='.publisher')
+                span(ex:content='.title')
             br
             br
-            | 			 Domain: 
-            span(ex:content='.domain')
+            | 			 Domain:
+            span(ex:content='.themes')
             br
             br
-            | 			 Content Type: 
-            span(ex:content='.natureOfContent')
+            | 			 Language:
+            span(ex:content='.language')
             br
             br
-            | 			 API Format: 
-            span(ex:content='.apiFormat')
+            | 			 License:
+            span(ex:content='.licenseLabel')
             br
             br
-            | 			 Licence: 
-            span(ex:content='.licence')
+            | 			 Description:
+            span(ex:content='.datasetDescription')
             br
             br
-            hr
-            h5 Consumer Stories
-            span.spnCons.label.label-success(style='font-size:14px')
-            br
-            br
-            b Aim for using this Publisher:
-            br
-            span.spnAim
-            br
-            br
-            b The Story:
-            br
-            span.spnStory
+            a(onclick='callDetails($(this).parent())') View all details
+            &nbsp; &nbsp;
+            a(onclick='callAddUseCase($(this).parent())') Add Usecase
+            &nbsp; &nbsp;
+            a(onclick='callAddDistribution($(this).parent())') Add Distribution
           div(ex:role='exhibit-view', ex:viewclass='Exhibit.TileView', ex:orders='.licence', ex:directions='ascending', ex:possibleorders='.domain, .publisher', ex:showall='true', ex:grouped='false')
         .col-md-4
-          div(ex:role='facet', ex:expression='.domain', ex:sortmode='count', ex:facetlabel='Domain')
-          div(ex:role='facet', ex:expression='.licence', ex:sortmode='count', ex:facetlabel='Licence')
-          div(ex:role='facet', ex:expression='.apiFormat', ex:sortmode='count', ex:facetlabel='API Format')
-          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Content Type')
-          div(ex:role='facet', ex:expression='.publisher', ex:sortmode='count', ex:facetlabel='Publisher')
-    hr
+          div(ex:role='facet', ex:expression='.themes', ex:sortmode='count', ex:facetlabel='Domain')
+          div(ex:role='facet', ex:expression='.licenseLabel', ex:sortmode='count', ex:facetlabel='License')
+          div(ex:role='facet', ex:expression='.access', ex:sortmode='count', ex:facetlabel='Access Method')
+          div(ex:role='facet', ex:expression='.natureOfContent', ex:sortmode='count', ex:facetlabel='Nature of Content')
+          div(ex:role='facet', ex:expression='.spatial', ex:sortmode='count', ex:facetlabel='Geographical Area Covered')
+          div(ex:role='facet', ex:expression='.language', ex:sortmode='count', ex:facetlabel='Language')
+          div(ex:role='facet', ex:expression='.publisherName', ex:sortmode='count', ex:facetlabel='Publisher')
     // /container

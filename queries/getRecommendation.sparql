@@ -1,0 +1,14 @@
+SELECT ?dataset ?title ?datasetDescription 
+
+WHERE
+{ ?dataset a <http://www.w3.org/ns/dcat#Dataset> ;
+	<http://purl.org/dc/terms/title> ?title ;
+	<http://www.w3.org/ns/dcat#theme> [
+			a <http://www.w3.org/2008/05/skos#Concept> ;
+			<http://www.w3.org/2008/05/skos#prefLabel> <%%domain>
+	] ;
+	<http://www.w3.org/ns/dcat#keyword> <%%keyword%%> ;
+	<http://purl.org/dc/terms/description> ?datasetDescription .
+}
+GROUP BY
+?dataset ?title ?datasetDescription 
