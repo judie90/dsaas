@@ -15,21 +15,21 @@ block content
             i
               = desc
           strong
-            | Dataset URL:&nbsp;
+            | Dataset URL: 
           a(href='#{landing}')= landing
           br
           br
           span#language
             i
              strong
-              | Language:&nbsp;
+              | Language: 
             a(href='#{language}')= languagePrefLabel
             br
             br
           span#domain
             i
              strong
-              | Domains:&nbsp;
+              | Domains: 
               each item in themes
                 span(class='label label-info')= item
                 | &nbsp;
@@ -38,7 +38,7 @@ block content
           span#keywords
             i
              strong
-              | Keywords:&nbsp;
+              | Keywords: 
               each item in keywords
                 span(class='label label-success')= item
                 | &nbsp;
@@ -48,7 +48,7 @@ block content
             span#noc
               i
                strong
-                | Nature of Content:&nbsp;
+                | Nature of Content: 
                 each item in natureOfContent
                   span(class='label label-warning')= item
                   | &nbsp;
@@ -58,7 +58,7 @@ block content
             span#Licence
               i
                 strong
-                 | License:&nbsp;
+                 | License: 
               a(href='#{license}')= licenseLabel
               | &nbsp;(
               a(data-toggle='modal', data-target='#licenseModal') View License Text
@@ -69,7 +69,7 @@ block content
             span#dateIssued
               i
                 strong
-                 | Date Issued:&nbsp;
+                 | Date Issued: 
               = dateIssued
               br
               br
@@ -77,7 +77,7 @@ block content
             span#dateModified
              i
               strong
-               | Date Modified:&nbsp;
+               | Date Modified: 
              = dateModified
              br
              br
@@ -85,7 +85,7 @@ block content
             span#geoCoverage
              i
               strong
-               | Geographic Coverage:&nbsp;
+               | Geographic Coverage: 
              a(href='#{spatial}')= spatialPrefLabel
              br
              br
@@ -93,7 +93,7 @@ block content
             span#temporalCoverage
               i
                 strong
-                 | Temporal Coverage:&nbsp;
+                 | Temporal Coverage: 
               if (tStartDate != null)
                 = tStartDate
                 | &nbsp;-&nbsp;
