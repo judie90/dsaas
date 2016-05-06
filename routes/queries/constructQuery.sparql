@@ -1,0 +1,4 @@
+CONSTRUCT { <%%id%%> ?p ?o . ?o ?x ?y} WHERE {
+	<%%id%%> ?p ?o .
+	OPTIONAL { ?o ?x ?y . }
+}

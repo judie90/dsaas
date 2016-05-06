@@ -61,7 +61,7 @@ function saveDistribution(event) {
 //		arr_useCases[0]['datasetId'] = datasetid_uri; -> get dataset id from some hidden field from jade (for example)
 
 		var type = 'POST';
-		var url = '/dataset/add/distribution';
+		var url = 'dataset/add/distribution';
 
 		persist(type, url, arr_distributions[0]);
 
@@ -200,7 +200,7 @@ function saveUsecase(event) {
 
 //		arr_useCases[0]['datasetId'] = datasetid_uri; -> get dataset id from some hidden field from jade (for example)
 		var type = 'POST';
-		var url = '/dataset/add/usecase'; //dataset.js / function
+		var url = 'dataset/add/usecase'; //dataset.js / function
 
 		persist(type, url, arr_useCases[0]);
 
@@ -333,7 +333,7 @@ function addDataset(event){
 		console.log(addDataset);
 
 		var type = 'POST';
-		var url = '/dataset/add/dataset';
+		var url = 'dataset/add/dataset';
 
 		persist(type, url, addDataset);
 
@@ -539,7 +539,7 @@ function addNewDemand(event){
 		  $.ajax({
 		      type: 'POST',
 		      data: JSON.stringify(addDemand),
-		      url: '/demand/add',
+		      url: 'demand/add',
 		      dataType: 'JSON',
 			contentType: "application/json",
 			traditional: true
@@ -666,7 +666,7 @@ function callAddDistribution(theItem){
 
 //function to open view details page
 function callDetails(theItem){
-	id = $(theItem).attr('ex:itemid')
+	id = $(theItem).attr('ex:itemid').replace("http://butterbur22.iai.uni-bonn.de/dsaas/dataset/","")
 	location.href='dataset/'+id
 }
 
@@ -795,17 +795,17 @@ function saveConsumer(event){
 // }
 
 function validateURL(str) {
-  var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
-    '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
-    '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
-    '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
-    '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
-    '(\#[-a-z\d_]*)?$','i'); // fragment locater
-  if(!pattern.test(str)) {
-    return false;
-  } else {
+ // var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+ //   '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+ //   '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+ //   '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+ //   '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+ //   '(\#[-a-z\d_]*)?$','i'); // fragment locater
+ // if(!pattern.test(str)) {
+ //   return false;
+ // } else {
     return true;
-  }
+ // }
 }
 
 function addInterestOnDemand(event){
@@ -834,7 +834,7 @@ function addInterestOnDemand(event){
 		$.ajax({
 				type: 'POST',
 				data: JSON.stringify(addInterest),
-				url: '/demand/add/interest',
+				url: 'demand/add/interest',
 				dataType: 'JSON',
 				contentType: "application/json",
 				traditional: true

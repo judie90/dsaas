@@ -1,0 +1,37 @@
+
+> dsaas@0.0.0 start /home/butterbur22/attard/dsaas
+> node ./bin/www
+
+[0mGET / [36m304 [0m642.236 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m5.189 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m1.389 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m1.147 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m0.971 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m0.986 ms - -[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [36m304 [0m216.659 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m12.811 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m9.011 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m3.848 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m5.195 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.025 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m158.332 ms - -[0m
+[0mGET /dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9 [36m303 [0m16.830 ms - 170[0m
+2
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m947.888 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.164 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m7.602 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.277 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.003 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m2.683 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m118.765 ms - -[0m
+[0mGET /dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9 [36m303 [0m7.043 ms - 170[0m
+2
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m556.182 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.616 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.884 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.363 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m5.786 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.285 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m102.335 ms - -[0m

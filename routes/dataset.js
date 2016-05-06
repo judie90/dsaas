@@ -433,46 +433,46 @@ router.get('/exhibit/all', function(req, res, next) {
 router.get('/:resource', function(req, res, next) {
 	req.negotiate({
         	'text/html': function() {
-            res.redirect(303,'/page/dataset'+req.url+'.html');
+	            res.redirect(303,'/dsaas/page/dataset'+req.url+'.html');
         	},
 	        'application/rdf+xml': function() {
-            helperCN.getRDFXmlData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getRDFXmlData(GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
                 res.setHeader('content-type', 'application/rdf+xml');
                 res.send(triples);
             });
           },
     			'text/turtle': function(){
-            helperCN.getData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getData(GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
                 res.setHeader('content-type', 'text/turtle');
                 res.send(triples);
             });
     			},
     			'application/trig': function(){
-            helperCN.getNXData('application/trig', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/trig', GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/trig');
               res.send(triples);
             });
     			},
     			'application/n-triples': function(){
-            helperCN.getNXData('application/n-triples', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/n-triples', GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/n-triples');
               res.send(triples);
             });
     			},
     			'application/n-quads': function(){
-            helperCN.getNXData('application/n-quads', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/n-quads', GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/n-quads');
               res.send(triples);
             });
     			},
     			'text/plain': function(){
-            helperCN.getData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getData(GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'text/plain');
               res.send(triples);
             });
     			},
     			'application/ld+json': function(){
-            helperCN.getJsonLDData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getJsonLDData(GLOBAL.payLevelDomain+"/dataset"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/ld+json');
               res.send(triples);
             });

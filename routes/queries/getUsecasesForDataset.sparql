@@ -1,0 +1,19 @@
+SELECT ?useCase ?title ?generatorName ?generatorHomePage ?distribution ((group_concat(distinct ?motiv ; separator = ",")) as ?motivations) ?useCaseURL ?useCaseDesc 
+ WHERE {
+?useCase <https://www.w3id.org/dso#usesDataset> <%%id%%> ;
+	<http://purl.org/dc/terms/title> ?title ;
+	<https://www.w3id.org/dso#useCaseURL> ?useCaseURL ;
+	<https://www.w3id.org/dso#useCaseDescription> ?useCaseDesc ;
+	<https://www.w3id.org/dso#usesDistribution> [
+	<http://purl.org/dc/terms/title> ?distribution
+	];
+	<https://www.w3id.org/dso#generator> [
+		<http://xmlns.com/foaf/0.1/homepage> ?generatorHomePage
+	] .
+
+	OPTIONAL{ ?useCase <https://www.w3id.org/dso#generator> [
+		<http://xmlns.com/foaf/0.1/name> ?generatorName ]	}.
+	OPTIONAL{ ?useCase 		<https://www.w3id.org/dso#useCaseMotivation> ?motiv }.
+
+
+} GROUP BY ?useCase ?generatorName ?generatorHomePage ?motivations ?useCaseURL ?useCaseDesc ?title ?distribution

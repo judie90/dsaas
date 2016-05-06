@@ -10,7 +10,7 @@ var negotiate = require('express-negotiate');
 var endpoint = 'http://localhost:3030/dsaas'
 
 // Pay-Level Domain
-GLOBAL.payLevelDomain = "urn:";//"http://butterbur22.iai.uni-bonn.de/dsaas";
+GLOBAL.payLevelDomain = "http://butterbur22.iai.uni-bonn.de/dsaas";
 
 
 var routes = require('./routes/index');

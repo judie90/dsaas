@@ -1,0 +1,5 @@
+SELECT * {
+  <%%id%%> <https://www.w3id.org/dso#secondedBy> ?seconded .
+  ?seconded <http://xmlns.com/foaf/0.1/name> ?secondedName .
+  ?seconded <http://xmlns.com/foaf/0.1/homepage> ?secondedURL .
+}
