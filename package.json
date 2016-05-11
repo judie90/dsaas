@@ -20,8 +20,9 @@
 	"sparql-client":"~0.2.0",
 	"rdfstore":"~0.9.6",
 	"async":"~2.0.0-rc.1",
-  "express-negotiate":"~0.0.5",
-  "jsonld":"~0.4.2",
-  "n3":"~0.4.5"
+ 	"express-negotiate":"~0.0.5",
+  	"jsonld":"~0.4.2",
+  	"n3":"~0.4.5",
+	"unirest":"~0.4.2"
   }
 }

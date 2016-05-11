@@ -1,6 +1,8 @@
 var N3 = require('n3');
 var rdflib = require('rdflib');
 var jsonld = require('jsonld');
+var unirest = require('unirest');
+
 
 var SparqlClient = require('sparql-client');
 
@@ -44,14 +46,18 @@ exports.ContentNegotiation = function() {
   };
 
   this.getRDFXmlData = function(resource, endpoint, callback){
-  	source = 'text/turtle';
-  	target = 'application/rdf+xml'
+    var client = new SparqlClient(endpoint+"/query?output=text");
+    var query = "CONSTRUCT { <%%id%%> ?p ?o . ?o ?x ?y} WHERE { <%%id%%> ?p ?o .OPTIONAL { ?o ?x ?y . } }";
+    query = query.replace(/%%id%%/g, resource)
 
-  	graph = new rdflib.IndexedFormula();
-  	this.getData(resource,endpoint, function(triples){
-  		srcData = rdflib.parse(triples,graph,GLOBAL.payLevelDomain,source);
-  		targetData = rdflib.serialize(srcData, graph, GLOBAL.payLevelDomain, target);
-  		callback(targetData);
-  	});
+    client.query(query, function(error, results) {
+      if (results == null) console.log(error)
+      else{
+        unirest.post('http://rdf-translator.appspot.com/convert/detect/xml/'+escape(endpoint+"/query?query="+query)).end(
+          function (response) {
+            callback(response.body);
+        });
+      }
+    });
   };
 };

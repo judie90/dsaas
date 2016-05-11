@@ -2,36 +2,357 @@
 > dsaas@0.0.0 start /home/butterbur22/attard/dsaas
 > node ./bin/www
 
-[0mGET / [36m304 [0m642.236 ms - -[0m
-[0mGET /stylesheets/bootstrap.css [36m304 [0m5.189 ms - -[0m
-[0mGET /stylesheets/style.css [36m304 [0m1.389 ms - -[0m
-[0mGET /javascripts/global.js [36m304 [0m1.147 ms - -[0m
-[0mGET /javascripts/bootstrap.min.js [36m304 [0m0.971 ms - -[0m
-[0mGET /javascripts/jquery.min.js [36m304 [0m0.986 ms - -[0m
+[0mGET /page/demand/7ca49ec8-0c3a-489b-97f7-ea1b2368e718.html [36m304 [0m1445.211 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m10.252 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m11.211 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m39.073 ms - 146958[0m
+[0mGET /javascripts/global.js [32m200 [0m16.119 ms - 30679[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m19.995 ms - 83097[0m
+[0mGET /page/demand/7ca49ec8-0c3a-489b-97f7-ea1b2368e718.html [36m304 [0m435.759 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.291 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m15.080 ms - 146958[0m
+[0mGET /javascripts/global.js [32m200 [0m11.601 ms - 30679[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m17.215 ms - 83097[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m17.389 ms - 35951[0m
+INSERT DATA {  <http://butterbur22.iai.uni-bonn.de/dsaas/demand/7ca49ec8-0c3a-489b-97f7-ea1b2368e718> <https://www.w3id.org/dso#secondedBy> <http://butterbur22.iai.uni-bonn.de/dsaas/agent/fc1692ee-7b9e-7a50-9062-f7c2a91462c1> . 
+<http://butterbur22.iai.uni-bonn.de/dsaas/agent/fc1692ee-7b9e-7a50-9062-f7c2a91462c1> a <http://xmlns.com/foaf/0.1/Agent> . 
+<http://butterbur22.iai.uni-bonn.de/dsaas/agent/fc1692ee-7b9e-7a50-9062-f7c2a91462c1> <http://xmlns.com/foaf/0.1/name> "Enterprise Information Systems"^^<http://www.w3.org/2001/XMLSchema#string> . 
+<http://butterbur22.iai.uni-bonn.de/dsaas/agent/fc1692ee-7b9e-7a50-9062-f7c2a91462c1> <http://xmlns.com/foaf/0.1/homepage> <http://eis.iai.uni-bonn.de/About.html> . 
+ }
+[0mPOST /demand/add/interest [32m200 [0m107.881 ms - 10[0m
+[0mGET /page/demand/7ca49ec8-0c3a-489b-97f7-ea1b2368e718.html [32m200 [0m324.138 ms - 5106[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m14.893 ms - 146958[0m
+[0mGET /stylesheets/style.css [36m304 [0m10.597 ms - -[0m
+[0mGET /javascripts/global.js [32m200 [0m19.213 ms - 30679[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m13.181 ms - 35951[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m29.558 ms - 83097[0m
+[0mGET / [32m200 [0m134.753 ms - 3250[0m
+[0mGET / [32m200 [0m153.248 ms - 3250[0m
+2
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [32m200 [0m602.195 ms - 13769[0m
+[0mGET /stylesheets/style.css [32m200 [0m14.227 ms - 3211[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m27.014 ms - 146958[0m
+[0mGET /javascripts/global.js [32m200 [0m19.247 ms - 30679[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m18.937 ms - 35951[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m32.000 ms - 83097[0m
+[0mGET /addDataset [32m200 [0m258.759 ms - 10490[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m11.442 ms - 146958[0m
+[0mGET /stylesheets/style.css [32m200 [0m13.570 ms - 3211[0m
+[0mGET /javascripts/global.js [32m200 [0m23.989 ms - 30679[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m33.198 ms - 83097[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m32.795 ms - 35951[0m
+[0mGET /languages.json [32m200 [0m6.393 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m10.240 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m9.193 ms - 19431[0m
+[0mGET /media.json [32m200 [0m15.250 ms - 47797[0m
+[0mGET /content.json [32m200 [0m16.316 ms - 184[0m
+Warning: missing space before text for line 84 of jade file "/home/butterbur22/attard/dsaas/views/addDemand.jade"
+[0mGET /addDemand [32m200 [0m132.778 ms - 6807[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.551 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.841 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m8.280 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m4.191 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m4.722 ms - -[0m
+[0mGET /languages.json [36m304 [0m2.808 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.779 ms - -[0m
+[0mGET /licenses.json [36m304 [0m2.699 ms - -[0m
+[0mGET /media.json [36m304 [0m3.921 ms - -[0m
+[0mGET /content.json [36m304 [0m6.569 ms - -[0m
 Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
 Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
-[0mGET /search [36m304 [0m216.659 ms - -[0m
-[0mGET /stylesheets/bootstrap.css [36m304 [0m12.811 ms - -[0m
-[0mGET /stylesheets/style.css [36m304 [0m9.011 ms - -[0m
-[0mGET /javascripts/jquery.min.js [36m304 [0m3.848 ms - -[0m
-[0mGET /javascripts/global.js [36m304 [0m5.195 ms - -[0m
-[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.025 ms - -[0m
-[0mGET /dataset/exhibit/all [36m304 [0m158.332 ms - -[0m
-[0mGET /dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9 [36m303 [0m16.830 ms - 170[0m
+[0mGET /search [32m200 [0m122.708 ms - 4486[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m2.928 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.714 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.127 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.297 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m12.905 ms - -[0m
+[0mGET /dataset/exhibit/all [32m200 [0m115.421 ms - 18132[0m
+[0mGET /dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m303 [0m15.459 ms - 170[0m
+1
+[0mGET /page/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327.html [32m200 [0m372.710 ms - 9182[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.122 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.728 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.526 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m6.604 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m3.730 ms - -[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [36m304 [0m130.462 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m6.403 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.332 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.178 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m5.299 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m9.151 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m136.827 ms - -[0m
+Adding usecase to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [32m200 [0m227.662 ms - 4823[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m8.750 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.023 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.561 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m11.404 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m13.476 ms - -[0m
+[0mGET /languages.json [36m304 [0m3.215 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.966 ms - -[0m
+[0mGET /licenses.json [36m304 [0m2.793 ms - -[0m
+[0mGET /media.json [36m304 [0m4.633 ms - -[0m
+[0mGET /content.json [36m304 [0m7.177 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m133.440 ms - -[0m
+[0mGET / [32m200 [0m86.664 ms - 3250[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m12.136 ms - 146958[0m
+[0mGET /stylesheets/style.css [32m200 [0m6.923 ms - 3211[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m9.632 ms - 83097[0m
+[0mGET /javascripts/global.js [32m200 [0m7.965 ms - 30679[0m
+[0mGET /images/Pillars_of_Creation.jpeg [32m200 [0m13.955 ms - 179816[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m7.789 ms - 35951[0m
+[0mGET /addDataset [32m200 [0m195.214 ms - 10490[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m9.795 ms - 146958[0m
+[0mGET /stylesheets/style.css [32m200 [0m3.818 ms - 3211[0m
+[0mGET /javascripts/global.js [32m200 [0m11.763 ms - 30679[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m18.817 ms - 83097[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m19.898 ms - 35951[0m
+[0mGET /languages.json [32m200 [0m5.530 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m6.394 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m5.670 ms - 19431[0m
+[0mGET /media.json [32m200 [0m7.356 ms - 47797[0m
+[0mGET /content.json [32m200 [0m5.094 ms - 184[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m5.498 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m7.857 ms - -[0m
+[0mGET /dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9 [36m303 [0m5.164 ms - 170[0m
 2
-[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m947.888 ms - -[0m
-[0mGET /stylesheets/style.css [36m304 [0m3.164 ms - -[0m
-[0mGET /stylesheets/bootstrap.css [36m304 [0m7.602 ms - -[0m
-[0mGET /javascripts/jquery.min.js [36m304 [0m6.277 ms - -[0m
-[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.003 ms - -[0m
-[0mGET /javascripts/global.js [36m304 [0m2.683 ms - -[0m
-[0mGET /dataset/exhibit/all [36m304 [0m118.765 ms - -[0m
-[0mGET /dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9 [36m303 [0m7.043 ms - 170[0m
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m427.518 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.982 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m3.193 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.196 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m5.395 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m8.209 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m7.195 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m9.931 ms - -[0m
 2
-[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m556.182 ms - -[0m
-[0mGET /stylesheets/bootstrap.css [36m304 [0m4.616 ms - -[0m
-[0mGET /stylesheets/style.css [36m304 [0m5.884 ms - -[0m
-[0mGET /javascripts/jquery.min.js [36m304 [0m5.363 ms - -[0m
-[0mGET /javascripts/global.js [36m304 [0m5.786 ms - -[0m
-[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.285 ms - -[0m
-[0mGET /dataset/exhibit/all [36m304 [0m102.335 ms - -[0m
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [32m200 [0m502.295 ms - 13879[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m13.044 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m9.874 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.078 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.581 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m4.134 ms - -[0m
+[0mGET /datasetfe08878b-859d-7cc0-3f42-5cae782b7df9 [33m404 [0m102.292 ms - 3335[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.835 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.727 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.157 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.611 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m10.397 ms - -[0m
+2
+[0mGET /page/dataset/fe08878b-859d-7cc0-3f42-5cae782b7df9.html [36m304 [0m510.233 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.210 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.204 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.080 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m4.440 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.122 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m110.291 ms - -[0m
+Adding usecase to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m304 [0m163.327 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m22.283 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m15.497 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m11.994 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m10.695 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m13.938 ms - -[0m
+[0mGET /languages.json [36m304 [0m3.234 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.812 ms - -[0m
+[0mGET /licenses.json [36m304 [0m4.471 ms - -[0m
+[0mGET /media.json [36m304 [0m7.066 ms - -[0m
+[0mGET /content.json [36m304 [0m3.794 ms - -[0m
+[0mGET /addDataset [36m304 [0m304.839 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.149 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.120 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.075 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m9.904 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m5.314 ms - -[0m
+[0mGET /languages.json [36m304 [0m8.416 ms - -[0m
+[0mGET /countries.json [36m304 [0m8.316 ms - -[0m
+[0mGET /licenses.json [36m304 [0m11.398 ms - -[0m
+[0mGET /media.json [36m304 [0m13.734 ms - -[0m
+[0mGET /content.json [36m304 [0m15.882 ms - -[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [36m304 [0m172.243 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.064 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m6.281 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.650 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.339 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m10.063 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m113.916 ms - -[0m
+[0mGET /dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m303 [0m4.441 ms - 170[0m
+1
+[0mGET /page/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327.html [32m200 [0m392.041 ms - 9314[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m10.164 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m15.555 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.916 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m8.898 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m11.898 ms - -[0m
+Adding usecase to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m304 [0m183.901 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.208 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.752 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.316 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m5.485 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m4.059 ms - -[0m
+[0mGET /languages.json [36m304 [0m3.067 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.640 ms - -[0m
+[0mGET /licenses.json [36m304 [0m2.725 ms - -[0m
+[0mGET /media.json [36m304 [0m4.686 ms - -[0m
+[0mGET /content.json [36m304 [0m7.107 ms - -[0m
+[0mGET /addDataset [36m304 [0m275.223 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.055 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.698 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.738 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.396 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m9.637 ms - -[0m
+[0mGET /languages.json [36m304 [0m2.826 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.737 ms - -[0m
+[0mGET /licenses.json [36m304 [0m2.815 ms - -[0m
+[0mGET /media.json [36m304 [0m6.898 ms - -[0m
+[0mGET /content.json [36m304 [0m12.384 ms - -[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [36m304 [0m105.759 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.316 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m5.572 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m8.191 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m3.720 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m3.264 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m105.010 ms - -[0m
+Adding distribution to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addDistribution?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [32m200 [0m138.708 ms - 4773[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m2.966 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.862 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m2.767 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m6.035 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m8.139 ms - -[0m
+[0mGET /languages.json [36m304 [0m2.687 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.722 ms - -[0m
+[0mGET /licenses.json [36m304 [0m4.506 ms - -[0m
+[0mGET /media.json [36m304 [0m6.979 ms - -[0m
+[0mGET /content.json [36m304 [0m3.995 ms - -[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [36m304 [0m129.239 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m12.127 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m15.119 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m3.573 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.204 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m9.850 ms - -[0m
+[0mGET /dataset/exhibit/all [36m304 [0m116.586 ms - -[0m
+[0mGET /dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m303 [0m6.140 ms - 170[0m
+1
+[0mGET /page/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327.html [32m200 [0m447.934 ms - 9456[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m5.139 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m6.281 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.360 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.121 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m5.143 ms - -[0m
+Adding distribution to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addDistribution?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m304 [0m151.981 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m5.796 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.199 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m3.846 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m4.404 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m7.091 ms - -[0m
+[0mGET /languages.json [36m304 [0m3.903 ms - -[0m
+[0mGET /countries.json [36m304 [0m2.690 ms - -[0m
+[0mGET /licenses.json [36m304 [0m5.484 ms - -[0m
+[0mGET /media.json [36m304 [0m7.704 ms - -[0m
+[0mGET /content.json [36m304 [0m10.348 ms - -[0m
+Adding usecase to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [36m304 [0m147.366 ms - -[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.268 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.796 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m3.346 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m6.471 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m8.910 ms - -[0m
+[0mGET /languages.json [36m304 [0m2.724 ms - -[0m
+[0mGET /countries.json [36m304 [0m6.176 ms - -[0m
+[0mGET /licenses.json [36m304 [0m8.830 ms - -[0m
+[0mGET /media.json [36m304 [0m11.455 ms - -[0m
+[0mGET /content.json [36m304 [0m13.845 ms - -[0m
+Warning: missing space before text for line 47 of jade file "/home/butterbur22/attard/dsaas/views/searchdemand.jade"
+[0mGET /searchdemand [32m200 [0m135.089 ms - 4401[0m
+[0mGET /stylesheets/style.css [32m200 [0m20.215 ms - 3211[0m
+[0mGET /stylesheets/bootstrap.css [32m200 [0m36.675 ms - 146958[0m
+[0mGET /javascripts/global.js [32m200 [0m37.899 ms - 30679[0m
+[0mGET /javascripts/jquery.min.js [32m200 [0m44.024 ms - 83097[0m
+[0mGET /javascripts/bootstrap.min.js [32m200 [0m24.855 ms - 35951[0m
+[0mGET /demand/exhibit/all [32m200 [0m53.599 ms - 1446[0m
+Warning: missing space before text for line 84 of jade file "/home/butterbur22/attard/dsaas/views/addDemand.jade"
+[0mGET /addDemand [32m200 [0m190.387 ms - 6807[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.968 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m4.026 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.963 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m8.698 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m4.177 ms - -[0m
+[0mGET /languages.json [32m200 [0m5.562 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m7.852 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m5.856 ms - 19431[0m
+[0mGET /media.json [32m200 [0m9.870 ms - 47797[0m
+[0mGET /content.json [32m200 [0m12.114 ms - 184[0m
+[0mGET /addDataset [32m200 [0m229.209 ms - 10490[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m4.140 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.384 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.156 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.915 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m14.556 ms - -[0m
+[0mGET /languages.json [32m200 [0m12.700 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m6.458 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m6.505 ms - 19431[0m
+[0mGET /media.json [32m200 [0m7.265 ms - 47797[0m
+[0mGET /content.json [32m200 [0m5.876 ms - 184[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [32m200 [0m94.045 ms - 4486[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m2.868 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.704 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m2.695 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m5.785 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m8.531 ms - -[0m
+[0mGET /dataset/exhibit/all [32m200 [0m113.307 ms - 18132[0m
+Adding usecase to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/60bfd233-5e87-c1d6-e7f5-de99bb8ea841
+[0mGET /addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/60bfd233-5e87-c1d6-e7f5-de99bb8ea841 [32m200 [0m137.983 ms - 4810[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.037 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m2.758 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m4.733 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.348 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m9.364 ms - -[0m
+[0mGET /languages.json [32m200 [0m5.453 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m6.591 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m5.065 ms - 19431[0m
+[0mGET /media.json [32m200 [0m7.452 ms - 47797[0m
+[0mGET /content.json [32m200 [0m5.028 ms - 184[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [32m200 [0m121.085 ms - 4486[0m
+[0mGET /dataset/exhibit/all [32m200 [0m126.672 ms - 18132[0m
+Adding distribution to: http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327
+[0mGET /addDistribution?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/4025d8f6-8f59-29ee-3fb4-a2e194341327 [32m200 [0m166.747 ms - 4773[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m3.242 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.537 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m6.304 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m7.925 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m10.142 ms - -[0m
+[0mGET /languages.json [32m200 [0m5.862 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m6.531 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m6.677 ms - 19431[0m
+[0mGET /media.json [32m200 [0m7.074 ms - 47797[0m
+[0mGET /content.json [32m200 [0m5.094 ms - 184[0m
+Warning: missing space before text for line 41 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+Warning: missing space before text for line 43 of jade file "/home/butterbur22/attard/dsaas/views/search.jade"
+[0mGET /search [32m200 [0m166.742 ms - 4486[0m
+[0mGET /dataset/exhibit/all [32m200 [0m108.303 ms - 18132[0m
+[0mGET /addDataset [32m200 [0m289.635 ms - 10490[0m
+[0mGET /stylesheets/bootstrap.css [36m304 [0m8.237 ms - -[0m
+[0mGET /stylesheets/style.css [36m304 [0m3.011 ms - -[0m
+[0mGET /javascripts/jquery.min.js [36m304 [0m5.320 ms - -[0m
+[0mGET /javascripts/global.js [36m304 [0m3.857 ms - -[0m
+[0mGET /javascripts/bootstrap.min.js [36m304 [0m3.375 ms - -[0m
+[0mGET /languages.json [32m200 [0m6.639 ms - 3737[0m
+[0mGET /countries.json [32m200 [0m7.436 ms - 29162[0m
+[0mGET /licenses.json [32m200 [0m5.899 ms - 19431[0m
+[0mGET /media.json [32m200 [0m8.095 ms - 47797[0m
+[0mGET /content.json [32m200 [0m5.093 ms - 184[0m

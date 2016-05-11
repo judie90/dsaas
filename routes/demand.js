@@ -135,17 +135,17 @@ router.post('/add/interest', function(req, res) {
   var endpoint = req.db + "/update";
 
   var inputData = req.body;
-	var insertTriples = "";
+  var insertTriples = "";
 
   var submitterid   = "<"+GLOBAL.payLevelDomain+"/agent/"+ guid() + ">";
 
-	insertTriples += " <"+inputData['demandId']  + "> <"+DSO_NS+"secondedBy> "+ submitterid+" . \n";
+  insertTriples += " <"+GLOBAL.payLevelDomain+"/demand/"+inputData['demandId']  + "> <"+DSO_NS+"secondedBy> "+ submitterid+" . \n";
   insertTriples += submitterid + " a <" + FOAF_NS + "Agent> . \n";
   insertTriples += submitterid + " <"+FOAF_NS+"name> \""+inputData['submitter']+"\"^^<"+XSD_NS+"string> . \n";
   insertTriples += submitterid + " <"+FOAF_NS+"homepage> <"+inputData['submitterUrl']+"> . \n";
 
   insertStmt = genericInsert.replace("%%TRIPLES%%",insertTriples);
-
+  console.log(insertStmt)
   var client = new SparqlClient(endpoint);
 
   client.query(insertStmt, function(error, results) {
@@ -195,46 +195,46 @@ router.get('/exhibit/all', function(req, res, next) {
 router.get('/:resource', function(req, res, next) {
 	req.negotiate({
         	'text/html': function() {
-            res.redirect(303,'/page/demand'+req.url+'.html');
+            res.redirect(303,'/dsaas/page/demand'+req.url+'.html');
         	},
 	        'application/rdf+xml': function() {
-            helperCN.getRDFXmlData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getRDFXmlData(GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
                 res.setHeader('content-type', 'application/rdf+xml');
                 res.send(triples);
             });
           },
     			'text/turtle': function(){
-            helperCN.getData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getData(GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
                 res.setHeader('content-type', 'text/turtle');
                 res.send(triples);
             });
     			},
     			'application/trig': function(){
-            helperCN.getNXData('application/trig', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/trig', GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/trig');
               res.send(triples);
             });
     			},
     			'application/n-triples': function(){
-            helperCN.getNXData('application/n-triples', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/n-triples', GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/n-triples');
               res.send(triples);
             });
     			},
     			'application/n-quads': function(){
-            helperCN.getNXData('application/n-quads', req.url.replace('/',''), req.db, function(triples){
+            helperCN.getNXData('application/n-quads', GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/n-quads');
               res.send(triples);
             });
     			},
     			'text/plain': function(){
-            helperCN.getData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getData(GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'text/plain');
               res.send(triples);
             });
     			},
     			'application/ld+json': function(){
-            helperCN.getJsonLDData(req.url.replace('/',''), req.db, function(triples){
+            helperCN.getJsonLDData(GLOBAL.payLevelDomain+"/demand"+req.url, req.db, function(triples){
               res.setHeader('content-type', 'application/ld+json');
               res.send(triples);
             });

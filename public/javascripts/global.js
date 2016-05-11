@@ -673,7 +673,7 @@ function callDetails(theItem){
 
 //function to open view details page for demands
 function callDemandDetails(theItem){
-	id = $(theItem).attr('ex:itemid')
+	id = $(theItem).attr('ex:itemid').replace("http://butterbur22.iai.uni-bonn.de/dsaas/demand/","")
 	location.href='demand/'+id
 }
 
@@ -794,7 +794,7 @@ function saveConsumer(event){
 //     return urlregex.test(textval);
 // }
 
-function validateURL(str) {
+//function validateURL(str) {
  // var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
  //   '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
  //   '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
@@ -804,12 +804,12 @@ function validateURL(str) {
  // if(!pattern.test(str)) {
  //   return false;
  // } else {
-    return true;
+ //   return true;
  // }
-}
+//}
 
  function validateURL(textval) {
-     var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
+     var urlregex = /^(http|https|ftp):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
      return urlregex.test(textval);
  }
 
@@ -840,7 +840,7 @@ function addInterestOnDemand(event){
 		$.ajax({
 				type: 'POST',
 				data: JSON.stringify(addInterest),
-				url: 'demand/add/interest',
+				url: '/dsaas/demand/add/interest',
 				dataType: 'JSON',
 				contentType: "application/json",
 				traditional: true

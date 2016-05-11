@@ -157,7 +157,8 @@ block content
                     | Distribution Used:&nbsp;
                  | #{item.distributionUsed}
 
-      hr
+       a(href='/dsaas/addUseCase?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/#{datasetId}') Add Usecase
+       hr
     .container
        .row
          .col-md-12
@@ -212,6 +213,7 @@ block content
                      | #{item.distributorName}
                    br
                    br
+       a(href='/dsaas/addDistribution?id=http://butterbur22.iai.uni-bonn.de/dsaas/dataset/#{datasetId}') Add Distribution
     #licenseModal.modal.fade(role='dialog')
        .modal-dialog
          .modal-content
