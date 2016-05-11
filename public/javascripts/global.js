@@ -308,6 +308,8 @@ function addDataset(event){
 			addDataset['natureOfContent'].push("Documents");
 		if ($('input#checkboxApplications').is(":checked"))
 			addDataset['natureOfContent'].push("Applications");
+		if ($('input#checkboxMusic').is(":checked"))
+			addDataset['natureOfContent'].push("Music");
 		if($('#formAddDataset input#dateIssued').val() != "") {
 			addDataset['dateIssued'] = $('#formAddDataset input#dateIssued').val();
 		}
@@ -517,6 +519,8 @@ function addNewDemand(event){
 				addDemand['natureOfContent'].push("Documents");
 			if ($('input#checkboxApplications').is(":checked"))
 				addDemand['natureOfContent'].push("Applications");
+			if ($('input#checkboxMusic').is(":checked"))
+				addDemand['natureOfContent'].push("Music");
 			if ($('#formAddDemand #ddCountry').val() != -1) {
 				addDemand['spatial'] = $('#formAddDemand #ddCountry').val();
 			}
